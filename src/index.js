@@ -1,3 +1,4 @@
 export default value => ({
-    then: callback => callback(value),
+    then: callback => Promise.resolve(value)
+        .then(callback),
 });
