@@ -8,4 +8,7 @@ describe('Transmute', (it) => {
     it('does not change an integer', assert => transmute(5)
         .then(value => assert.equal(value, 5))
     );
+    it('does not change a string', assert => transmute('roar')
+        .then(value => assert.equal(value, 'roar'))
+    );
 });
