@@ -1,3 +1,3 @@
 export default () => ({
-    hello: 'world',
+    then: callback => callback(null),
 });
