@@ -2,7 +2,10 @@ export default (value) => {
     const transducers = [];
     const api = {
         extend: (obj) => {
-            transducers.push(() => Promise.resolve(obj));
+            transducers.push(d => (obj
+                ? Promise.resolve(obj)
+                : Promise.resolve(d)
+            ));
             return api;
         },
     };

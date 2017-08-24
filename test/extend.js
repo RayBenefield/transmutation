@@ -33,4 +33,9 @@ describe('Extend Operator', (it) => {
         .extend(null)
         .then(value => assert.deepEqual(value, null))
     );
+
+    it('does not change an integer when extending with null', assert => transmute(5)
+        .extend(null)
+        .then(value => assert.deepEqual(value, 5))
+    );
 });
