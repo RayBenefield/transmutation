@@ -38,4 +38,24 @@ describe('Extend Operator', (it) => {
         .extend(null)
         .then(value => assert.deepEqual(value, 5))
     );
+
+    it('does not change a string when extending with null', assert => transmute('roar')
+        .extend(null)
+        .then(value => assert.deepEqual(value, 'roar'))
+    );
+
+    it('does not change an object when extending with null', assert => transmute({ test: 'roar' })
+        .extend(null)
+        .then(value => assert.deepEqual(value, { test: 'roar' }))
+    );
+
+    it('does not change an object when extending with null', assert => transmute([0, 'ten'])
+        .extend(null)
+        .then(value => assert.deepEqual(value, [0, 'ten']))
+    );
+
+    it('does not change a promise result when extending with null', assert => transmute(promise)
+        .extend(null)
+        .then(value => assert.deepEqual(value, { test: 'promise' }))
+    );
 });
