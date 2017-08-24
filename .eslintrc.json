@@ -6,15 +6,19 @@
         "import"
     ],
     "rules": {
+        "no-plusplus": 0,
+        "no-mixed-operators": 0,
+        "no-param-reassign": 0,
+        "no-continue": 0,
         "indent": [
             "error",
             4,
             { "SwitchCase": 1 }
         ],
-        "no-plusplus": 0,
-        "no-mixed-operators": 0,
-        "no-param-reassign": 0,
-        "no-continue": 0,
+        "no-confusing-arrow": [
+            "error",
+            { "allowParens": true }
+        ],
         "max-lines": [
             "error",
             {
