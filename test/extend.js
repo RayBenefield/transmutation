@@ -63,4 +63,9 @@ describe('Extend Operator', (it) => {
         .extend(null)
         .then(value => assert.deepEqual(value, { test: 'promise' }))
     );
+
+    it('batches an integer with another integer into an array', assert => transmute(5)
+        .extend(6)
+        .then(value => assert.deepEqual(value, [5, 6]))
+    );
 });
