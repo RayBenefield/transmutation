@@ -1,0 +1,8 @@
+import describe from 'tape-bdd';
+import transmute from 'src'; // eslint-disable-line
+
+describe('Transmute', (it) => {
+    it('does not change a null value', assert => transmute(null)
+        .then(value => assert.equal(value, null))
+    );
+});
