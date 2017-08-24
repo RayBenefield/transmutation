@@ -1,6 +1,8 @@
 import describe from 'tape-bdd';
 import transmute from 'src'; // eslint-disable-line
 
+const promise = new Promise(res => res({ test: 'promise' }));
+
 describe('Transmute', (it) => {
     it('does not change a null value', assert => transmute(null)
         .then(value => assert.deepEqual(value, null))
@@ -22,9 +24,7 @@ describe('Transmute', (it) => {
         .then(value => assert.deepEqual(value, [0, 'ten']))
     );
 
-    it('handles the result of a promise', (assert) => {
-        const promise = new Promise(res => res({ test: 'roar' }));
-        transmute(promise)
-            .then(value => assert.deepEqual(value, { test: 'roar' }));
-    });
+    it('handles the result of a promise', assert => transmute(promise)
+        .then(value => assert.deepEqual(value, { test: 'promise' }))
+    );
 });
