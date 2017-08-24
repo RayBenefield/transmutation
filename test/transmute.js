@@ -18,6 +18,10 @@ describe('Transmute', (it) => {
         .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
 
+    it('does not change an array', assert => transmute([0, 'ten'])
+        .then(value => assert.deepEqual(value, [0, 'ten']))
+    );
+
     it('handles the result of a promise', (assert) => {
         const promise = new Promise(res => res({ test: 'roar' }));
         transmute(promise)
