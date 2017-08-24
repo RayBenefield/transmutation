@@ -17,4 +17,10 @@ describe('Transmute', (it) => {
     it('does not change an object', assert => transmute({ test: 'roar' })
         .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
+
+    it('handles the result of a promise', (assert) => {
+        const promise = new Promise(res => res({ test: 'roar' }));
+        transmute(promise)
+            .then(value => assert.deepEqual(value, { test: 'roar' }));
+    });
 });
