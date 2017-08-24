@@ -1,7 +1,7 @@
 import describe from 'tape-bdd';
 import transmute from 'src'; // eslint-disable-line
 
-const promise = new Promise(res => res({ test: 'roar' }));
+const promise = new Promise(res => res({ test: 'promise' }));
 
 describe('Extend Operator', (it) => {
     it('extends a null value to a number', assert => transmute(null)
@@ -26,7 +26,7 @@ describe('Extend Operator', (it) => {
 
     it('extends a null value to a promise result', assert => transmute(null)
         .extend(promise)
-        .then(value => assert.deepEqual(value, { test: 'roar' }))
+        .then(value => assert.deepEqual(value, { test: 'promise' }))
     );
 
     it('does not change a null value when extending with null', assert => transmute(null)
