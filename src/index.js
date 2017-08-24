@@ -1,1 +1,3 @@
-console.log('This is transmutation.');
+export default () => ({
+    hello: 'world',
+});
