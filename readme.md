@@ -5,6 +5,19 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #2
+
+Second round moving forward. Just making sure I catch as many edge cases as I
+can with the early stage of the Extend operator. I have to remind myself
+regularly the target DSL. So if I extend "5" with an array of "6" and "7", then
+I tack that 5 to the beginning of the array. I also refactored out the operators
+system so adding new operators will be easy. It is something I did in the
+prototype and wanted to port over. I also made it so anyone can easily extend
+Transmutation with their own operators. I'll demonstrate that in testing in the
+future. I should add that as a todo item after this. So far so good and it is
+nice to be in a system where I have testing setup again. And I forgot how fast
+and clean it is working with tape. So much nicer and feels much leaner.
+
 
 ### #1
 
