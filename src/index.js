@@ -1,3 +1,3 @@
-export default () => ({
-    then: callback => callback(null),
+export default value => ({
+    then: callback => callback(value),
 });
