@@ -6,4 +6,9 @@ describe('Extend Operator', (it) => {
         .extend(5)
         .then(value => assert.equal(value, 5))
     );
+
+    it('extends a null value to a string', assert => transmute(null)
+        .extend('roar')
+        .then(value => assert.equal(value, 'roar'))
+    );
 });
