@@ -16,4 +16,9 @@ describe('Extend Operator', (it) => {
         .extend({ test: 'roar' })
         .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
+
+    it('extends a null value to an array', assert => transmute(null)
+        .extend([0, 'ten'])
+        .then(value => assert.deepEqual(value, [0, 'ten']))
+    );
 });
