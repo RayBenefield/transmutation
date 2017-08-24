@@ -22,7 +22,7 @@
     },
     "scripts": {
         "prebuild": "npm run clean && mkdir -p dist/ && cp package.json yarn.lock LICENSE readme.md dist/",
-        "build": "babel src/ -d dist/src --ignore '**/*.test.js'",
+        "build": "babel src/ -d dist/src",
         "clean": "rimraf dist",
         "lint": "eslint -c .eslintrc.json src/",
         "test": "babel-tape-runner test/{,**/}*.js | tap-spec",
