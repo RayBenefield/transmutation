@@ -25,11 +25,12 @@
         "build": "babel src/ -d dist/src --ignore '**/*.test.js'",
         "clean": "rimraf dist",
         "lint": "eslint -c .eslintrc.json src/",
-        "test": "nodemon src/index.test.js --exec babel-node",
+        "test": "babel-tape-runner test/{,**/}*.js | tap-spec",
         "sloc": "echo 'Lines of source code: ' && sloc src/ --exclude node_modules -f json | jq '.summary.source'",
         "patch": "npm version patch -m 'v%s' && js-beautify -r package.json && git commit -a --amend --no-edit",
         "minor": "npm version minor -m 'v%s' && js-beautify -r package.json && git commit -a --amend --no-edit",
-        "major": "npm version major -m 'v%s' && js-beautify -r package.json && git commit -a --amend --no-edit"
+        "major": "npm version major -m 'v%s' && js-beautify -r package.json && git commit -a --amend --no-edit",
+        "postinstall": "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
     },
     "dependencies": {
         "lodash": "^2.4.0"
@@ -40,6 +41,7 @@
         "babel-preset-es2015": "^6.24.1",
         "babel-preset-es2016": "^6.24.1",
         "babel-preset-es2017": "^6.24.1",
+        "babel-tape-runner": "^2.0.1",
         "eslint": "^3.19.0",
         "eslint-config-airbnb": "^15.0.1",
         "eslint-plugin-import": "^2.3.0",
@@ -50,7 +52,10 @@
         "node-jq": "^0.7.0",
         "nodemon": "^1.11.0",
         "rimraf": "^2.6.1",
-        "sloc": "^0.2.0"
+        "sloc": "^0.2.0",
+        "tap-spec": "^4.1.1",
+        "tape": "^4.8.0",
+        "tape-bdd": "^0.0.1"
     },
     "babel": {
         "presets": [
