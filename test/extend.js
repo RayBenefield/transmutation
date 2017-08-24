@@ -58,4 +58,9 @@ describe('Extend Operator', (it) => {
         .extend(null)
         .then(value => assert.deepEqual(value, { test: 'promise' }))
     );
+
+    it('does not change a promise result from recursion when extending with null', assert => transmute(transmute(promise))
+        .extend(null)
+        .then(value => assert.deepEqual(value, { test: 'promise' }))
+    );
 });
