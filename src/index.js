@@ -1,10 +1,12 @@
 import _ from 'lodash';
 
 const baseOperators = {
-    extend: obj => d => (obj
-        ? Promise.resolve(obj)
-        : Promise.resolve(d)
-    ),
+    extend: obj => (value) => {
+        if (!value) return Promise.resolve(obj);
+        if (!obj) return Promise.resolve(value);
+        if (_.isNumber(obj)) return Promise.resolve([value, obj]);
+        return Promise.resolve(obj);
+    },
 };
 
 const createApi = operators => transducers => (value) => {
