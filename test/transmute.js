@@ -27,4 +27,8 @@ describe('Transmute', (it) => {
     it('handles the result of a promise', assert => transmute(promise)
         .then(value => assert.deepEqual(value, { test: 'promise' }))
     );
+
+    it('recursively handles transmuted values', assert => transmute(transmute(promise))
+        .then(value => assert.deepEqual(value, { test: 'promise' }))
+    );
 });
