@@ -32,6 +32,11 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
 
+    it('extends a new path perfectly fine with a string', assert => transmute({ test: 'roar' })
+        .extend('jam.test.stuff', 'works')
+        .then(value => assert.deepEqual(value, { test: 'roar', jam: { test: { stuff: 'works' } } }))
+    );
+
     /* Non object to object extensions */
 
     it('stays null extending a null with a null', assert => transmute(null)
