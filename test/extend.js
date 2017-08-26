@@ -12,6 +12,11 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { test: 'roar', roar: 'test' }))
     );
 
+    it('does nothing when extending an object with an object with the same key', assert => transmute({ test: 'roar' })
+        .extend({ test: 'no' })
+        .then(value => assert.deepEqual(value, { test: 'roar' }))
+    );
+
     /* Non object to object extensions */
 
     it('stays null extending a null with a null', assert => transmute(null)
