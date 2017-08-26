@@ -19,14 +19,6 @@
             "error",
             { "allowParens": true }
         ],
-        "max-lines": [
-            "error",
-            {
-                "max": 50,
-                "skipBlankLines": true,
-                "skipComments": true
-            }
-        ],
         "comma-dangle": [
             "error",
             {
