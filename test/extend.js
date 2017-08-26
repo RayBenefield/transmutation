@@ -1,6 +1,8 @@
 import describe from 'tape-bdd';
 import transmute from 'src'; // eslint-disable-line
 
+const promise = new Promise(res => res({ test: 'promise' }));
+
 describe('Extend Operator', (it) => {
     it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
         .extend({ test: 'roar' })
@@ -35,6 +37,11 @@ describe('Extend Operator', (it) => {
     it('extends a new path perfectly fine with a string', assert => transmute({ test: 'roar' })
         .extend('jam.test.stuff', 'works')
         .then(value => assert.deepEqual(value, { test: 'roar', jam: { test: { stuff: 'works' } } }))
+    );
+
+    it('extends a new path perfectly fine with a promise result', assert => transmute({ test: 'roar' })
+        .extend('jam.test.stuff', promise)
+        .then(value => assert.deepEqual(value, { test: 'roar', jam: { test: { stuff: { test: 'promise' } } } }))
     );
 
     /* Non object to object extensions */
