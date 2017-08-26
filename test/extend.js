@@ -5,6 +5,18 @@ const promise = new Promise(res => res({ test: 'promise' }));
 const promiseArray = new Promise(res => res(['promise']));
 
 describe.only('Extend Operator', (it) => {
+    it('extends with the result of a function instead of a primitive or promise', assert => transmute({ parameter: 'roar' })
+        .extend(({ parameter }) => ({ [parameter]: 'result' }))
+        .then(value => assert.deepEqual(value, { parameter: 'roar', roar: 'result' }))
+    );
+
+    it('extends a path with the result of a function instead of a primitive or promise', assert => transmute({ parameter: 'roar' })
+        .extend('testing.stuff', ({ parameter }) => ({ [parameter]: 'result' }))
+        .then(value => assert.deepEqual(value, { parameter: 'roar', testing: { stuff: { roar: 'result' } } }))
+    );
+
+    /* Object merging */
+
     it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
         .extend({ test: 'roar' })
         .then(value => assert.deepEqual(value, { test: 'roar' }))
