@@ -2,6 +2,11 @@ import describe from 'tape-bdd';
 import transmute from 'src'; // eslint-disable-line
 
 describe('Extend Operator', (it) => {
+    it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
+        .extend({ test: 'roar' })
+        .then(value => assert.deepEqual(value, { test: 'roar' }))
+    );
+
     /* Non object to object extensions */
 
     it('stays null extending a null with a null', assert => transmute(null)
