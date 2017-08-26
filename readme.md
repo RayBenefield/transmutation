@@ -5,6 +5,18 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #3
+
+Finally found a bit of time to get one session in. Working on all the strange
+edge cases for the extend operator before actually working on the object portion
+that it was made to do. I think I can consolidate all of those if statements,
+but perhaps I'm wrong. Anyway, before I check it in I need to go rename all of
+the tests so they match the scenario they are doing. But there are 31 total
+tests now and next session I'll clean that up and start working on the actual
+reason the library exists, doing awesome extend stuff to grow an object without
+mutating anything in the object.
+
+
 ### #2
 
 Second round moving forward. Just making sure I catch as many edge cases as I
