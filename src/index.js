@@ -1,42 +1,42 @@
 import _ from 'lodash';
 
-const extensionFunc = obj => (value) => {
+const extensionFunc = (obj, value) => {
     if (!value) {
-        return Promise.resolve(obj);
+        return obj;
     }
     if (!obj) {
-        return Promise.resolve(value);
+        return value;
     }
     if (_.isArray(obj) && _.isArray(value)) {
-        return Promise.resolve([...value, ...obj]);
+        return [...value, ...obj];
     }
     if (_.isArray(value)) {
-        return Promise.resolve([...value, obj]);
+        return [...value, obj];
     }
     if (_.isArray(obj)) {
-        return Promise.resolve([value, ...obj]);
+        return [value, ...obj];
     }
     if (!_.isPlainObject(value) && !_.isPlainObject(obj)) {
-        return Promise.resolve([value, obj]);
+        return [value, obj];
     }
     if (_.isPlainObject(value) && !_.isPlainObject(obj)) {
-        return Promise.resolve([value, obj]);
+        return [value, obj];
     }
     if (_.isPlainObject(obj) && !_.isPlainObject(value)) {
-        return Promise.resolve([value, obj]);
+        return [value, obj];
     }
-    return Promise.resolve(_.defaultsDeep(value, obj));
+    return _.defaultsDeep(value, obj);
 };
 
 const baseOperators = {
     extend: (path, obj) => {
         if (!obj) {
-            obj = path;
-            path = null;
-        } else {
-            obj = _.set({}, path, obj);
+            return value => Promise.resolve(path)
+                .then(o => extensionFunc(o, value));
         }
-        return extensionFunc(obj);
+        return value => Promise.resolve(obj)
+            .then(o => _.set({}, path, o))
+            .then(o => extensionFunc(o, value));
     },
 };
 
