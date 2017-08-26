@@ -4,8 +4,12 @@ const baseOperators = {
     extend: obj => (value) => {
         if (!value) return Promise.resolve(obj);
         if (!obj) return Promise.resolve(value);
+        if (_.isArray(obj) && _.isArray(value)) return Promise.resolve([...value, ...obj]);
+        if (_.isArray(value)) return Promise.resolve([...value, obj]);
         if (_.isArray(obj)) return Promise.resolve([value, ...obj]);
-        if (_.isNumber(value)) return Promise.resolve([value, obj]);
+        if (!_.isPlainObject(value) && !_.isPlainObject(obj)) return Promise.resolve([value, obj]);
+        if (_.isPlainObject(value) && !_.isPlainObject(obj)) return Promise.resolve([value, obj]);
+        if (_.isPlainObject(obj) && !_.isPlainObject(value)) return Promise.resolve([value, obj]);
         return Promise.resolve(obj);
     },
 };
