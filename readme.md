@@ -5,6 +5,17 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #6
+
+So I got the promise system to properly work and then what I realized is that
+deep defaulting doesn't work properly since deepDefaults doesn't have the merge
+behaviour that I'm looking for. For example if both objects have a key of test,
+then one has a string and the other has an object, I want the string and object
+to be merged as an array below the test key. Which is what my default behaviour
+does at a high level, but not at a deep level so I have to figure out the best
+way to get that working as expected. This could take me a bit of research.
+
+
 ### #5
 
 I was blanking for a bit trying to add in paths and stuff for the extend
