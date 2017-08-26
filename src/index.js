@@ -10,22 +10,13 @@ const extensionFunc = (obj, value) => {
     if (_.isArray(obj) && _.isArray(value)) {
         return [...value, ...obj];
     }
-    if (_.isArray(value)) {
+    if (_.isArray(value) && !_.isArray(obj)) {
         return [...value, obj];
     }
-    if (_.isArray(obj)) {
-        return [value, ...obj];
+    if (!_.isPlainObject(value) || !_.isPlainObject(obj)) {
+        return value;
     }
-    if (!_.isPlainObject(value) && !_.isPlainObject(obj)) {
-        return [value, obj];
-    }
-    if (_.isPlainObject(value) && !_.isPlainObject(obj)) {
-        return [value, obj];
-    }
-    if (_.isPlainObject(obj) && !_.isPlainObject(value)) {
-        return [value, obj];
-    }
-    return _.defaultsDeep(value, obj);
+    return _.mergeWith(obj, value, extensionFunc);
 };
 
 const baseOperators = {

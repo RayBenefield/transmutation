@@ -2,8 +2,9 @@ import describe from 'tape-bdd';
 import transmute from 'src'; // eslint-disable-line
 
 const promise = new Promise(res => res({ test: 'promise' }));
+const promiseArray = new Promise(res => res(['promise']));
 
-describe('Extend Operator', (it) => {
+describe.only('Extend Operator', (it) => {
     it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
         .extend({ test: 'roar' })
         .then(value => assert.deepEqual(value, { test: 'roar' }))
@@ -44,6 +45,11 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { test: 'roar', jam: { test: { stuff: { test: 'promise' } } } }))
     );
 
+    it('extends an existing path with a promise result', assert => transmute({ test: ['roar'] })
+        .extend('test', promiseArray)
+        .then(value => assert.deepEqual(value, { test: ['roar', 'promise'] }))
+    );
+
     /* Non object to object extensions */
 
     it('stays null extending a null with a null', assert => transmute(null)
@@ -76,14 +82,14 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, 5))
     );
 
-    it('batches an integer with another integer into an array when extending an integer with another integer', assert => transmute(4)
+    it('keeps the original integer if trying to extend with another integer', assert => transmute(4)
         .extend(5)
-        .then(value => assert.deepEqual(value, [4, 5]))
+        .then(value => assert.deepEqual(value, 4))
     );
 
-    it('batches an integer with a string into an array when extending a string with an integer', assert => transmute('roar')
+    it('keeps the original string if trying to extend with an integer', assert => transmute('roar')
         .extend(5)
-        .then(value => assert.deepEqual(value, ['roar', 5]))
+        .then(value => assert.deepEqual(value, 'roar'))
     );
 
     it('batches an integer with the rest of an array when extending an array with an integer', assert => transmute([0, 'ten'])
@@ -91,9 +97,9 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, [0, 'ten', 5]))
     );
 
-    it('batches an integer with a object into an array when extending an object with an integer', assert => transmute({ test: 'roar' })
+    it('keeps the original object if trying to extend with an integer', assert => transmute({ test: 'roar' })
         .extend(5)
-        .then(value => assert.deepEqual(value, [{ test: 'roar' }, 5]))
+        .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
 
     it('changes a null to a string when extending a null with a string', assert => transmute(null)
@@ -101,14 +107,14 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, 'roar'))
     );
 
-    it('batches a string with an integer into an array when extending an integer with a string', assert => transmute(5)
+    it('keeps the original integer when extending with a string', assert => transmute(5)
         .extend('roar')
-        .then(value => assert.deepEqual(value, [5, 'roar']))
+        .then(value => assert.deepEqual(value, 5))
     );
 
-    it('batches a string with another string into an array when extending a string with another string', assert => transmute('roar')
-        .extend('roar')
-        .then(value => assert.deepEqual(value, ['roar', 'roar']))
+    it('keeps the original string when extending with another string', assert => transmute('roar')
+        .extend('no')
+        .then(value => assert.deepEqual(value, 'roar'))
     );
 
     it('batches a string with the rest of an array when extending an array with a string', assert => transmute([0, 'ten'])
@@ -116,9 +122,9 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, [0, 'ten', 'roar']))
     );
 
-    it('batches a string with an object into an array when extending an object with a string', assert => transmute({ test: 'roar' })
+    it('keeps the original object when extending with a string', assert => transmute({ test: 'roar' })
         .extend('roar')
-        .then(value => assert.deepEqual(value, [{ test: 'roar' }, 'roar']))
+        .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
 
     it('changes a null to an array when extending a null with an array', assert => transmute(null)
@@ -126,14 +132,14 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, [0, 'ten']))
     );
 
-    it('prepends the integer to an array when extending an integer with an array', assert => transmute(5)
+    it('keeps the original integer when extending with an array', assert => transmute(5)
         .extend([0, 'ten'])
-        .then(value => assert.deepEqual(value, [5, 0, 'ten']))
+        .then(value => assert.deepEqual(value, 5))
     );
 
-    it('prepends the string to an array when extending a string with an array', assert => transmute('roar')
+    it('keeps the original string when extending with an array', assert => transmute('roar')
         .extend([0, 'ten'])
-        .then(value => assert.deepEqual(value, ['roar', 0, 'ten']))
+        .then(value => assert.deepEqual(value, 'roar'))
     );
 
     it('prepends the array with another array when extending an array with another array', assert => transmute([0, 'ten'])
@@ -141,9 +147,9 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, [0, 'ten', 0, 'ten']))
     );
 
-    it('prepends the object to an array when extending an object with an array', assert => transmute({ test: 'roar' })
+    it('keeps the original object when extending with an array', assert => transmute({ test: 'roar' })
         .extend([0, 'ten'])
-        .then(value => assert.deepEqual(value, [{ test: 'roar' }, 0, 'ten']))
+        .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
 
     it('changes a null to an object when extending a null with an object', assert => transmute(null)
@@ -151,14 +157,14 @@ describe('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { test: 'roar' }))
     );
 
-    it('batches an object with an integer into an array when extending an integer with an object', assert => transmute(5)
+    it('keeps the original integer when extending with an object', assert => transmute(5)
         .extend({ test: 'roar' })
-        .then(value => assert.deepEqual(value, [5, { test: 'roar' }]))
+        .then(value => assert.deepEqual(value, 5))
     );
 
-    it('batches an object with an integer into an array when extending a string with an object', assert => transmute('roar')
+    it('keeps the original string when extending with an object', assert => transmute('roar')
         .extend({ test: 'roar' })
-        .then(value => assert.deepEqual(value, ['roar', { test: 'roar' }]))
+        .then(value => assert.deepEqual(value, 'roar'))
     );
 
     it('appends an object to an array when extending an array with an object', assert => transmute([0, 'ten'])
