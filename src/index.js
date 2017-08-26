@@ -22,12 +22,20 @@ const extensionFunc = (obj, value) => {
 const baseOperators = {
     extend: (path, obj) => {
         if (!obj) {
-            return value => Promise.resolve(path)
-                .then(o => extensionFunc(o, value));
+            return (value) => {
+                let result = path;
+                if (_.isFunction(result)) result = result(value);
+                return Promise.resolve(result)
+                    .then(o => extensionFunc(o, value));
+            };
         }
-        return value => Promise.resolve(obj)
-            .then(o => _.set({}, path, o))
-            .then(o => extensionFunc(o, value));
+        return (value) => {
+            let result = obj;
+            if (_.isFunction(result)) result = result(value);
+            return Promise.resolve(result)
+                .then(o => _.set({}, path, o))
+                .then(o => extensionFunc(o, value));
+        };
     },
 };
 
@@ -40,7 +48,7 @@ const createApi = operators => transducers => (value) => {
     );
     api.then = callback => transducers
         .reduce(
-            (prev, next) => prev.then(next).catch(next().reject),
+            (prev, next) => prev.then(next),
             Promise.resolve(value)
         )
         .then(callback);
