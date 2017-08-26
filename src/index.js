@@ -1,40 +1,42 @@
 import _ from 'lodash';
 
+const extensionFunc = obj => (value) => {
+    if (!value) {
+        return Promise.resolve(obj);
+    }
+    if (!obj) {
+        return Promise.resolve(value);
+    }
+    if (_.isArray(obj) && _.isArray(value)) {
+        return Promise.resolve([...value, ...obj]);
+    }
+    if (_.isArray(value)) {
+        return Promise.resolve([...value, obj]);
+    }
+    if (_.isArray(obj)) {
+        return Promise.resolve([value, ...obj]);
+    }
+    if (!_.isPlainObject(value) && !_.isPlainObject(obj)) {
+        return Promise.resolve([value, obj]);
+    }
+    if (_.isPlainObject(value) && !_.isPlainObject(obj)) {
+        return Promise.resolve([value, obj]);
+    }
+    if (_.isPlainObject(obj) && !_.isPlainObject(value)) {
+        return Promise.resolve([value, obj]);
+    }
+    return Promise.resolve(_.defaultsDeep(value, obj));
+};
+
 const baseOperators = {
-    extend: (path, obj) => (value) => {
+    extend: (path, obj) => {
         if (!obj) {
             obj = path;
             path = null;
+        } else {
+            obj = _.set({}, path, obj);
         }
-        if (!path) {
-            if (!value) {
-                return Promise.resolve(obj);
-            }
-            if (!obj) {
-                return Promise.resolve(value);
-            }
-            if (_.isArray(obj) && _.isArray(value)) {
-                return Promise.resolve([...value, ...obj]);
-            }
-            if (_.isArray(value)) {
-                return Promise.resolve([...value, obj]);
-            }
-            if (_.isArray(obj)) {
-                return Promise.resolve([value, ...obj]);
-            }
-            if (!_.isPlainObject(value) && !_.isPlainObject(obj)) {
-                return Promise.resolve([value, obj]);
-            }
-            if (_.isPlainObject(value) && !_.isPlainObject(obj)) {
-                return Promise.resolve([value, obj]);
-            }
-            if (_.isPlainObject(obj) && !_.isPlainObject(value)) {
-                return Promise.resolve([value, obj]);
-            }
-            return Promise.resolve(_.defaultsDeep(value, obj));
-        }
-        if (!_.has(value, path)) return Promise.resolve(_.set(value, path, obj));
-        return Promise.resolve(_.defaultsDeep(value, obj));
+        return extensionFunc(obj);
     },
 };
 
