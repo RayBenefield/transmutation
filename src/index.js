@@ -10,7 +10,7 @@ const baseOperators = {
         if (!_.isPlainObject(value) && !_.isPlainObject(obj)) return Promise.resolve([value, obj]);
         if (_.isPlainObject(value) && !_.isPlainObject(obj)) return Promise.resolve([value, obj]);
         if (_.isPlainObject(obj) && !_.isPlainObject(value)) return Promise.resolve([value, obj]);
-        return Promise.resolve(_.extend(value, _.omit(obj, _.keys(value))));
+        return Promise.resolve(_.defaultsDeep(value, obj));
     },
 };
 
