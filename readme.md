@@ -5,6 +5,40 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #7
+
+WOOT!!! I think I fixed it just as I wanted to. I've changed the merge rules
+logic to make more sense of it. I put it in this commit message:
+
+```
+When extending an existing key the goal is to keep all data as close to
+the same as possible... never losing data, but also never changing the
+type of data. So if a string is being extended with a number, the
+next function that is going to use that property could now break because
+it is a different type. However if an array is being extend with a
+number, then the next function is already expecting an array so
+appending the number to the array should not break it by normal
+javascript standards... since we don't enforce a single type in each
+array. The reverse is not also true though... extending a number with an
+array should return the number since the next function to use it will be
+expecting a number.
+
+Based on that set of thoughts. I've changed all of the merging rules and
+it looks like it should work with deep extensions as well. Which is a
+very good sign.
+```
+
+So I think the extend operator is solid right now using path and a promise or
+primitive value property, which is awesome. The next thing to probably do is
+look into how a use case that matches the Rampant.AI platform looks. If I want
+to extend the base object with the result of a promise call, but use part of
+that base object (not all of it) for that promise call... how do I do that
+easily? Basically I need to be able to cleanly scope the base object to use for
+that promise call. I'll have to determine what that API will look like next
+session. For now though... I think I'm solid to push the next patch version of
+**Transmutation**. YAY!!!
+
+
 ### #6
 
 So I got the promise system to properly work and then what I realized is that
