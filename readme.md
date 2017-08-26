@@ -5,6 +5,18 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #5
+
+I was blanking for a bit trying to add in paths and stuff for the extend
+operator and then something just clicked which was SUPER nice. When I did that I
+think I made things just work nicely. I have to look into edge cases now like
+when I try to set a new key past a non-object value, but I think I covered most
+cases with what I just did. I should really check promises next session to
+ensure that I cover the main reason that I want this because I want to extend a
+result from a promise into a backbone snowball object of data. So I'll try to
+make sure that works next session if I get to it.
+
+
 ### #4
 
 Finished up all the strange simple cases and now I'm working on simple object
