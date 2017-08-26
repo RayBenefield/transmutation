@@ -5,6 +5,15 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #8
+
+I think it is useable now. I added the ability to send in a function in addition
+to a primitive or a promise and if that function returns a primitive or a
+promise or a transmutation, it just works. :) I think the next step is to test
+it with Rampant.AI. I think I can substitute most of the code with it now...
+very cleanly actually. AHHH!!! IT MIGHT BE THE MOMENT!!!
+
+
 ### #7
 
 WOOT!!! I think I fixed it just as I wanted to. I've changed the merge rules
