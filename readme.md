@@ -5,6 +5,18 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #4
+
+Finished up all the strange simple cases and now I'm working on simple object
+extensions while keeping immutability. I got basic cases done and now I'm
+factoring in paths which will be its own bit of fun. I also realized that it is
+possible I'm not handling promises properly so I'll need to ensure that isn't a
+problem as well. We shall see. Taking a bit of a brain break and then I'll jump
+back into it. This is the most important operator when it is done. The core of
+the library really. Of course the conditional extensions and branching and
+parallel calls and stuff are important, but this is the bread and butter.
+
+
 ### #3
 
 Finally found a bit of time to get one session in. Working on all the strange
