@@ -36,6 +36,31 @@ describe.only('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { parameter: 'roar', testing: { stuff: { roar: 'result' } }, second: { place: { roar: 'result' } } }))
     );
 
+    it('extends an array of paths with a result while sharing a portion of the path', assert => transmute({ parameter: 'roar' })
+        .extend(['testing.stuff', 'testing.place'], ({ parameter }) =>
+            transmute({ [parameter]: 'result' })
+        )
+        .then(value => assert.deepEqual(value, {
+            parameter: 'roar',
+            testing: {
+                stuff: { roar: 'result' },
+                place: { roar: 'result' },
+            },
+        }))
+    );
+
+    it('extends an array of paths without triggering merge problems', assert => transmute({ parameter: 'roar' })
+        .extend(['parameter', 'testing.place'], ({ parameter }) =>
+            transmute({ [parameter]: 'result' })
+        )
+        .then(value => assert.deepEqual(value, {
+            parameter: 'roar',
+            testing: {
+                place: { roar: 'result' },
+            },
+        }))
+    );
+
     /* Object merging */
 
     it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
