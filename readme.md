@@ -5,6 +5,22 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #9
+
+So the refactor for my **Rampant.AI** platform went smoothly. It took roughly 5
+pomodoros (25 minute sessions) and a real time of about 3 hours. I refactored
+away from **RxJS** and to **Transmutation** and promises where **Transmutation**
+didn't have the feature set needed quite yet. The code base went from 320 lines
+of code to 247 lines of code which is a 22.8125% decrease in code. Which is
+HUGE. And it is much cleaner and easier to read. I can almost drop **lodash**
+from that as a dependency as well and keep all my **lodash** functionality in
+**Transmutation**. This session I spent time refactoring and enabled multiple
+path extending. I'm going to work on features that will make **Rampant.AI**
+cleaner. Probably starting with a side effect function as well as potentially an
+`if` function and some logging helper functions. Which I've always wanted. Lots
+of fun stuff that can be done. This is just the beginning of **Transmutation**.
+
+
 ### #8
 
 I think it is useable now. I added the ability to send in a function in addition
