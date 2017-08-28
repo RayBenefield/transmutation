@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const extensionFunc = (obj, value) => {
+const merger = (obj, value) => {
     if (!value) {
         return obj;
     }
@@ -16,7 +16,7 @@ const extensionFunc = (obj, value) => {
     if (!_.isPlainObject(value) || !_.isPlainObject(obj)) {
         return value;
     }
-    return _.mergeWith(obj, value, extensionFunc);
+    return _.mergeWith(obj, value, merger);
 };
 
 const baseOperators = {
@@ -26,7 +26,7 @@ const baseOperators = {
                 let result = path;
                 if (_.isFunction(result)) result = result(value);
                 return Promise.resolve(result)
-                    .then(o => extensionFunc(o, value));
+                    .then(o => merger(o, value));
             };
         }
         return (value) => {
@@ -34,7 +34,7 @@ const baseOperators = {
             if (_.isFunction(result)) result = result(value);
             return Promise.resolve(result)
                 .then(o => _.set({}, path, o))
-                .then(o => extensionFunc(o, value));
+                .then(o => merger(o, value));
         };
     },
 };
