@@ -10,22 +10,13 @@ const merger = (obj, value) => {
 };
 
 const baseOperators = {
-    extend: (path, obj) => {
-        if (!obj) {
-            return (value) => {
-                let result = path;
-                if (_.isFunction(result)) result = result(value);
-                return Promise.resolve(result)
-                    .then(o => merger(o, value));
-            };
-        }
-        return (value) => {
-            let result = obj;
-            if (_.isFunction(result)) result = result(value);
-            return Promise.resolve(result)
-                .then(o => _.set({}, path, o))
-                .then(o => merger(o, value));
-        };
+    extend: (path, obj) => (value) => {
+        const finalPath = obj ? path : null;
+        const base = obj || path;
+        const finalObject = _.isFunction(base) ? base(value) : base;
+        return Promise.resolve(finalObject)
+            .then(o => (finalPath ? _.set({}, finalPath, o) : o))
+            .then(o => merger(o, value));
     },
 };
 
