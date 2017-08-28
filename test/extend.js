@@ -29,6 +29,13 @@ describe.only('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { parameter: 'roar', testing: { stuff: { roar: 'result' } } }))
     );
 
+    it('extends an array of paths with the transmuted result of a function instead of a primitive or promise', assert => transmute({ parameter: 'roar' })
+        .extend(['testing.stuff', 'second.place'], ({ parameter }) =>
+            transmute({ [parameter]: 'result' })
+        )
+        .then(value => assert.deepEqual(value, { parameter: 'roar', testing: { stuff: { roar: 'result' } }, second: { place: { roar: 'result' } } }))
+    );
+
     /* Object merging */
 
     it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
