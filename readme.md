@@ -5,6 +5,15 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #10
+
+Found a teensy bitsy bug that I can't figure out how to quite fix yet. I assume
+it has to do with the fact that I'm doing a reduce. But hopefully I'll figure it
+out in the future. Until then I spent some simple time refactoring a bit and
+adding a couple of tests. I really need to move on to actual functionality now.
+lol... stop focusing on the perfect and start adding some awesome.
+
+
 ### #9
 
 So the refactor for my **Rampant.AI** platform went smoothly. It took roughly 5
