@@ -6,4 +6,14 @@ describe('Log Operator', (it) => {
         .log(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
         .then()
     );
+
+    it('logs a scoped value to the given function', assert => transmute({ testing: { parameter: 'roar' } })
+        .log('testing.parameter', value => assert.deepEqual(value, 'roar'))
+        .then()
+    );
+
+    it('logs a titled value to the given function', assert => transmute('roar')
+        .log('my title', (title, value) => assert.ok(title === 'my title' && value === 'roar'))
+        .then()
+    );
 });
