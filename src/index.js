@@ -11,7 +11,12 @@ const merger = (obj, value) => {
 
 const baseOperators = {
     extend: (path, obj) => (value) => {
-        const paths = obj && _.isArray(path) ? path : [path];
+        // eslint-disable-next-line no-nested-ternary
+        const paths = obj && _.isArray(path)
+            ? path
+            : _.isNull(path)
+                ? null
+                : [path];
         const finalPath = obj ? paths : null;
         const base = obj || path;
         const finalObject = _.isFunction(base) ? base(value) : base;
