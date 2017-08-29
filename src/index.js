@@ -22,7 +22,10 @@ const baseOperators = {
         const finalObject = _.isFunction(base) ? base(value) : base;
         if (finalPath) {
             return Promise.all(finalPath.map(single => Promise.resolve(finalObject)
-                .then(o => _.set({}, single, o))
+                .then(o => (single
+                    ? _.set({}, single, o)
+                    : o
+                ))
                 .then(o => merger(o, value))
             ))
             .then(o => o.reduce(merger, {}));
