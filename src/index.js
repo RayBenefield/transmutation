@@ -77,6 +77,10 @@ const baseOperators = {
         if (_.has(value, path)) return transducer(value);
         return Promise.resolve(value);
     },
+    ifNot: (path, transducer) => (value) => {
+        if (!_.has(value, path)) return transducer(value);
+        return Promise.resolve(value);
+    },
 };
 
 const createApi = operators => transducers => (value) => {
