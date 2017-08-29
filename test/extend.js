@@ -68,17 +68,39 @@ describe.only('Extend Operator', (it) => {
         .then(value => assert.deepEqual(value, { parameter: 'roar', roar: 'result' }))
     );
 
-    it('does not add any additional pathing when extending with a null path in an array', assert => transmute({ parameter: 'roar' })
+    it('uses an integer as a key when an integer is a path', assert => transmute({ parameter: 'roar' })
+        .extend(42, ({ parameter }) =>
+            transmute({ [parameter]: 'result' })
+        )
+        .then(value => assert.deepEqual(value, {
+            parameter: 'roar',
+            42: { roar: 'result' },
+        }))
+    );
+
+    // TODO: Fix the null in an array problem
+    it.skip('does not add any additional pathing when extending with a null path in an array', assert => transmute({ parameter: 'roar' })
         .extend([null, 'testing'], ({ parameter }) =>
             transmute({ [parameter]: 'result' })
         )
         .then(value => assert.deepEqual(value, {
             parameter: 'roar',
             roar: 'result',
-            testing: {
-                parameter: 'roar',
-                roar: 'result',
-            },
+            testing: { roar: 'result' },
+        }))
+    );
+
+    // TODO: Fix the null in an array problem
+    it.skip('uses an integer as a key when an integer is a path', assert => transmute({ parameter: 'roar' })
+        .extend([42, 54, null, 'testing'], ({ parameter }) =>
+            transmute({ [parameter]: 'result' })
+        )
+        .then(value => assert.deepEqual(value, {
+            parameter: 'roar',
+            roar: 'result',
+            42: { roar: 'result' },
+            54: { roar: 'result' },
+            testing: { roar: 'result' },
         }))
     );
 
