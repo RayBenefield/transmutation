@@ -73,6 +73,10 @@ const baseOperators = {
         }
         return Promise.resolve(value);
     },
+    if: (path, transducer) => (value) => {
+        if (_.has(value, path)) return transducer(value);
+        return Promise.resolve(value);
+    },
 };
 
 const createApi = operators => transducers => (value) => {
@@ -93,4 +97,6 @@ const createApi = operators => transducers => (value) => {
 
 export const configureTransmuter = operators => value => createApi(operators)([])(value);
 
-export default module.exports = configureTransmuter(baseOperators);
+const defaultTransmuter = configureTransmuter(baseOperators);
+_.extend(defaultTransmuter, baseOperators);
+export default module.exports = defaultTransmuter;
