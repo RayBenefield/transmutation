@@ -30,6 +30,10 @@ const baseOperators = {
         return Promise.resolve(finalObject)
             .then(o => merger(o, value));
     },
+    do: sideEffect => (value) => {
+        if (_.isFunction(sideEffect)) sideEffect(value);
+        return Promise.resolve(value);
+    },
 };
 
 const createApi = operators => transducers => (value) => {
