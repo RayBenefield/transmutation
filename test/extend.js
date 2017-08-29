@@ -61,6 +61,13 @@ describe.only('Extend Operator', (it) => {
         }))
     );
 
+    it('does not add any additional pathing when extending with a null path', assert => transmute({ parameter: 'roar' })
+        .extend(null, ({ parameter }) =>
+            transmute({ [parameter]: 'result' })
+        )
+        .then(value => assert.deepEqual(value, { parameter: 'roar', roar: 'result' }))
+    );
+
     /* Object merging */
 
     it('does nothing when extending an object with an identical object', assert => transmute({ test: 'roar' })
