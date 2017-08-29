@@ -22,7 +22,7 @@ describe('If Operators', (it) => {
     );
 
     it('extends if path does not exists', assert => transmute({ testing: { parameter: 'roar' } })
-        .ifNot('ifTest.parameter',
+        .ifNo('ifTest.parameter',
             transmute.extend({ ifTest: 'pass' })
         )
         .then(value => assert.deepEqual(value, {
@@ -34,7 +34,7 @@ describe('If Operators', (it) => {
     );
 
     it('does not extend if path exists', assert => transmute({ testing: { parameter: 'roar' } })
-        .ifNot('testing.parameter',
+        .ifNo('testing.parameter',
             transmute.extend({ ifTest: 'fail' })
         )
         .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
