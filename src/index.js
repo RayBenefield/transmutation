@@ -47,6 +47,22 @@ const baseOperators = {
             title(value);
             return Promise.resolve(value);
         }
+        if (title && !path) {
+            if (_.has(value, title)) {
+                logger(_.get(value, title));
+                return Promise.resolve(value);
+            }
+            logger(title, value);
+            return Promise.resolve(value);
+        }
+        if (title && _.isFunction(path)) {
+            if (_.has(value, title)) {
+                path(_.get(value, title));
+                return Promise.resolve(value);
+            }
+            path(title, value);
+            return Promise.resolve(value);
+        }
         return Promise.resolve(value);
     },
 };
