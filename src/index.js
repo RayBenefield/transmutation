@@ -37,6 +37,18 @@ const baseOperators = {
         if (_.isFunction(finalSideEffect)) finalSideEffect(finalValue);
         return Promise.resolve(value);
     },
+    // eslint-disable-next-line no-console
+    log: (title, path, logger = console.log) => (value) => {
+        if (!title) {
+            logger(value);
+            return Promise.resolve(value);
+        }
+        if (_.isFunction(title)) {
+            title(value);
+            return Promise.resolve(value);
+        }
+        return Promise.resolve(value);
+    },
 };
 
 const createApi = operators => transducers => (value) => {
