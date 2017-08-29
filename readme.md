@@ -5,6 +5,21 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #13
+
+Added a new switch operator which was super simple, then got stuck on what to
+work on next. So I built up my todo list first which was just transferring some
+ideas I had from **Google Keep**. Then I realized that I forgot to add one of my
+old operator ideas which was putting the value `under` a path. Which can totally
+become useful moving forward. I did discover that if I use a conditional
+operator like `if`, `ifNo`, and `switch` that I can only tie a single transducer
+instead of a chain to the conditional. I think I know how to do a chain, but it
+may take some thought first. Regardless, I threw on a whole bunch of operators
+today and I'm quite proud of that. I'll push up my latest version and then I
+might start applying it around places tomorrow. We shall see. I can probably
+refactor some more things in **Rampant.AI** now.
+
+
 ### #12
 
 Totally had a good run this go around as I knew exactly what to do. So first I
