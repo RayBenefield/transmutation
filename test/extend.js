@@ -4,7 +4,7 @@ import transmute from 'src'; // eslint-disable-line
 const promise = new Promise(res => res({ test: 'promise' }));
 const promiseArray = new Promise(res => res(['promise']));
 
-describe.only('Extend Operator', (it) => {
+describe('Extend Operator', (it) => {
     it('extends with the result of a function instead of a primitive or promise', assert => transmute({ parameter: 'roar' })
         .extend(({ parameter }) => ({ [parameter]: 'result' }))
         .then(value => assert.deepEqual(value, { parameter: 'roar', roar: 'result' }))
