@@ -13,4 +13,10 @@ describe('Switch Operator', (it) => {
             },
         }))
     );
+    it('makes no modifications if no values match any branch', assert => transmute({ testing: { parameter: 'roar' } })
+        .switch('nonexistant.parameter', {
+            roar: transmute.extend({ switchTest: 'pass' }),
+        })
+        .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
+    );
 });
