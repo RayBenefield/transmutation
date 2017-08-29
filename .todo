@@ -16,3 +16,4 @@
  - .errorIf(path, error)
  - .errorIfNo(path, error)
  - Have switch accept an array or function
+ - Documentation for each of the operators
