@@ -63,6 +63,14 @@ const baseOperators = {
             path(title, value);
             return Promise.resolve(value);
         }
+        if (title && path) {
+            if (_.has(value, path)) {
+                logger(title, _.get(value, path));
+                return Promise.resolve(value);
+            }
+            logger(title, value);
+            return Promise.resolve(value);
+        }
         return Promise.resolve(value);
     },
 };
