@@ -5,6 +5,25 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #12
+
+Totally had a good run this go around as I knew exactly what to do. So first I
+finished up the log operator and added some skipped tests to test out the
+console logging actually. And then when I finished that I jumped straight into
+the `if` and `ifNo` operators. Took me no time at all since I was able to extend
+the default transmuter with the operators and use them to just make transducers
+which is awesome and was SUPER easy. Way easier than I thought. I think I know
+how to do meta operators that affect the whole transducer list as well... like
+adding a logging statement between every transducer to inspect the stream. SUPER
+useful if I can pull it off. I was super shocked at how easy `if` and `ifNo`
+were. And very happy about it should make things a lot more declarative. The
+next operator that I really want to tackle though is definitely a `switch`
+operator since it is one of the key things that creates verbosity in **RxJS** for me
+since you have merge two streams and filter both because if you don't output
+from a stream it just never outputs. It is crazy painful. So hopefully that will
+go smoothly.
+
+
 ### #11
 
 I started working on more operators that would be useful. I started with the do
