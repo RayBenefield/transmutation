@@ -11,4 +11,9 @@ describe('Do Operator', (it) => {
         .do(() => ({ returning: 'does nothing' }))
         .then(value => assert.deepEqual(value, { parameter: 'roar' }))
     );
+
+    it('executes side effect with scoped path', assert => transmute({ testing: { parameter: 'roar' } })
+        .do('testing.parameter', parameter => assert.equal(parameter, 'roar'))
+        .then()
+    );
 });

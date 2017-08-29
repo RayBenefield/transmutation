@@ -30,8 +30,11 @@ const baseOperators = {
         return Promise.resolve(finalObject)
             .then(o => merger(o, value));
     },
-    do: sideEffect => (value) => {
-        if (_.isFunction(sideEffect)) sideEffect(value);
+    do: (path, sideEffect) => (value) => {
+        const finalPath = sideEffect ? path : null;
+        const finalSideEffect = sideEffect || path;
+        const finalValue = finalPath ? _.get(value, finalPath) : value;
+        if (_.isFunction(finalSideEffect)) finalSideEffect(finalValue);
         return Promise.resolve(value);
     },
 };
