@@ -1,1 +1,18 @@
  - Added tests to show how to extend Transmutation using `configureTransmuter`
+ - Allow control operators like `if`, `ifNo`, and `switch` take in a chain of
+   transmuter transducers; currently only one can be used
+ - Add path based transmuting (scope the given initial value)
+ - Process operators
+     - These "meta" operators have access to the full transducer array and can
+       make modifications to it like logging between every step
+     - Trap errors, if something breaks and it matches the trap then do X
+       without breaking
+     - Debug sets up logging between each step
+ - Save transducer array to where it can be accessed by the outside world and
+   saved or created with a base transmute chain and can be applied later
+     - Apply a pipeline to values
+ - Perhaps use dot-wild to introduce tricks with wildcards in paths
+ - Visualization on how to do nested conditionals
+ - .errorIf(path, error)
+ - .errorIfNo(path, error)
+ - Have switch accept an array or function
