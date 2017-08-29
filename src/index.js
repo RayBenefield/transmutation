@@ -81,6 +81,11 @@ const baseOperators = {
         if (!_.has(value, path)) return transducer(value);
         return Promise.resolve(value);
     },
+    switch: (path, branches) => (value) => {
+        const test = _.get(value, path);
+        if (_.has(branches, test)) return branches[test](value);
+        return Promise.resolve(value);
+    },
 };
 
 const createApi = operators => transducers => (value) => {
