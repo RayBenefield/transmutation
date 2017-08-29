@@ -86,6 +86,7 @@ const baseOperators = {
         if (_.has(branches, test)) return branches[test](value);
         return Promise.resolve(value);
     },
+    under: path => value => Promise.resolve(_.set({}, path, value)),
 };
 
 const createApi = operators => transducers => (value) => {
