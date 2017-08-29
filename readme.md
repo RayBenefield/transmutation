@@ -5,6 +5,19 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #11
+
+I started working on more operators that would be useful. I started with the do
+operator to handle side effects (which there are quite a few of in **Rampant.AI**).
+That went fairly quickly... you can even scope the value of the callback
+argument which will be super handy. On top of that I'm working on a log operator
+so it is easier for me to throw log statements where I want. It accepts a logger
+for testing purposes, but defaults to console.log. It should be useful when I
+get through it. I want it to be able to log with a label in addition to being
+able to scope the value. This by itself won't save any code in **Rampant.AI** but it
+will still be useful. I'll get back to it after this break.
+
+
 ### #10
 
 Found a teensy bitsy bug that I can't figure out how to quite fix yet. I assume
