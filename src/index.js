@@ -50,4 +50,4 @@ const createApi = operators => transducers => (value) => {
 
 export const configureTransmuter = operators => value => createApi(operators)([])(value);
 
-export default configureTransmuter(baseOperators);
+export default module.exports = configureTransmuter(baseOperators);
