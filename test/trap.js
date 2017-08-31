@@ -28,4 +28,10 @@ describe.only('Trap Operator', (it) => {
         .then()
         .catch(err => assert.deepEqual(err.value, { test: 'roar' }))
     );
+
+    it('catches a promise error in an extend with a path', assert => transmute({ test: 'roar' })
+        .extend('testing.stuff', promise.then(() => { throw new Error('trap'); }))
+        .then()
+        .catch(err => assert.deepEqual(err.value, { test: 'roar' }))
+    );
 });
