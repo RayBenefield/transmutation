@@ -5,6 +5,23 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #14
+
+So I realized while using **Transmutation** that I have a problem with how errors
+are handled. When I start nesting transmutations then I start swallowing errors
+which is not what I want to do. I want to be able to error anywhere deep in the
+chain and it needs to bubble up. In order to do that I have to figure out where
+and when and how errors are being handled deeply and find a way to bubble
+everything up. And this is already proving to be fairly difficult. So I hope I
+don't get "trapped" in this forever. Once I figure out how to bubble errors I
+will definitely then put some work into this "trap" operator concept where I'm
+able to catch an error and convert it into an object instead so it can still be
+handled neatly (like sending back an HTTP response). I'm kind of anxious about
+this all, because error handling with promises are a very unknown bit of
+territory for me so I have a lot of learning to do. Hopefully things go smoothly
+tonight and I at least solve the bubbling problem. Wish me luck...
+
+
 ### #13
 
 Added a new switch operator which was super simple, then got stuck on what to
