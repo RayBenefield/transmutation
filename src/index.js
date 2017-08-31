@@ -34,7 +34,11 @@ const baseOperators = {
             .then(o => o.reduce(merger, {}));
         }
         return Promise.resolve(finalObject)
-            .then(o => merger(o, value));
+            .then(o => merger(o, value))
+            .catch((e) => {
+                e.value = value;
+                throw e;
+            });
     },
     do: (path, sideEffect) => (value) => {
         const finalPath = sideEffect ? path : null;
