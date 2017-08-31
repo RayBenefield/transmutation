@@ -3,7 +3,7 @@ import transmute from 'src'; // eslint-disable-line
 
 const promise = new Promise(res => res({ test: 'promise' }));
 
-describe.only('Trap Operator', (it) => {
+describe('Catch Operator', (it) => {
     it('catches a normal promise error', assert => transmute('roar')
         .extend(() => { throw new Error('trap'); })
         .then()
