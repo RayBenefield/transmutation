@@ -31,7 +31,11 @@ const baseOperators = {
                 .then(o => _.set({}, single, o))
                 .then(o => merger(o, value))
             ))
-            .then(o => o.reduce(merger, {}));
+            .then(o => o.reduce(merger, {}))
+            .catch((e) => {
+                e.value = value;
+                throw e;
+            });
         }
         return Promise.resolve(finalObject)
             .then(o => merger(o, value))
