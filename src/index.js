@@ -19,7 +19,13 @@ const baseOperators = {
                 : [path];
         const finalPath = obj ? paths : null;
         const base = obj || path;
-        const finalObject = _.isFunction(base) ? base(value) : base;
+        let finalObject = null;
+        try {
+            finalObject = _.isFunction(base) ? base(value) : base;
+        } catch (e) {
+            e.value = value;
+            throw e;
+        }
         if (finalPath) {
             return Promise.all(finalPath.map(single => Promise.resolve(finalObject)
                 .then(o => _.set({}, single, o))
