@@ -5,6 +5,14 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #15
+
+So I thought I solved things, but I definitely didn't. As soon as I started
+adding back the other tests they all started breaking because the catch tests
+were throwing errors haphazardly so now I have to figure out a solid way to
+prevent that. Error handling is SUPER stressful... AHHH!!!
+
+
 ### #14
 
 So I realized while using **Transmutation** that I have a problem with how errors
