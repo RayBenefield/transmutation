@@ -48,8 +48,10 @@ const baseOperators = {
         const finalPath = sideEffect ? path : null;
         const finalSideEffect = sideEffect || path;
         const finalValue = finalPath ? _.get(value, finalPath) : value;
-        if (_.isFunction(finalSideEffect)) finalSideEffect(finalValue);
-        return Promise.resolve(value);
+        let result = finalSideEffect;
+        if (_.isFunction(finalSideEffect)) result = finalSideEffect(finalValue);
+        return Promise.resolve(result)
+            .then(() => value);
     },
     // eslint-disable-next-line no-console
     log: (title, path, logger = console.log) => (value) => {
