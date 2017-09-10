@@ -5,6 +5,14 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #18
+
+Worked on the isolate function that makes it easy to isolate pieces of objects.
+It supports a single path or multiple paths in the form of an array. It is
+curried so it can be passed to things like the extend operator to do fun awesome
+things.
+
+
 ### #17
 
 Finished up the delayed do operator work, also added support for arrays for the
