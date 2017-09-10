@@ -22,9 +22,6 @@ const baseOperators = {
         let finalObject = null;
         try {
             finalObject = _.isFunction(base) ? base(value) : base;
-            if (_.isPromise(finalObject)) {
-                finalObject = finalObject.catch((err) => { throw err; });
-            }
         } catch (e) {
             e.value = value;
             throw e;
@@ -115,15 +112,10 @@ const createApi = operators => transducers => (value) => {
     );
     api.then = callback => transducers
         .reduce(
-            (prev, next) => prev
-                .then(next)
-                .catch((err) => { throw err; }),
-            Promise
-                .resolve(value)
-                .catch((err) => { throw err; })
+            (prev, next) => prev.then(next),
+            Promise.resolve(value)
         )
-        .then(callback)
-        .catch((err) => { throw err; });
+        .then(callback);
     return api;
 };
 
