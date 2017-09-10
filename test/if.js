@@ -54,10 +54,29 @@ describe('If Operators', (it) => {
         }))
     );
 
+    it('extends all paths do not exist', assert => transmute({
+        testing: { parameter: 'roar' },
+        second: { path: 'stuff' },
+    })
+        .ifNo(['not.existing', 'no.existence'],
+            transmute.extend({ ifTest: 'pass' })
+        )
+        .then(value => assert.deepEqual(value, {
+            ifTest: 'pass',
+            testing: { parameter: 'roar' },
+            second: { path: 'stuff' },
+        }))
+    );
+
     it('does not extend if path exists', assert => transmute({ testing: { parameter: 'roar' } })
         .ifNo('testing.parameter',
             transmute.extend({ ifTest: 'fail' })
         )
+        .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
+    );
+
+    it('does not extend if any path exists', assert => transmute({ testing: { parameter: 'roar' } })
+        .ifNo(['testing.parameter', 'no.existence'], transmute.extend({ ifTest: 'pass' }))
         .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
     );
 });
