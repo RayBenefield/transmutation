@@ -21,4 +21,7 @@ export const configureTransmuter = ops => value => createApi(ops)([])(value);
 
 const defaultTransmuter = configureTransmuter(operators);
 _.extend(defaultTransmuter, operators);
-export default module.exports = defaultTransmuter;
+
+export default defaultTransmuter;
+export const transmute = defaultTransmuter;
+export const isolate = _.curry((path, value) => _.get(value, path));
