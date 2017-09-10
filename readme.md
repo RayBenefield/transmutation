@@ -5,6 +5,15 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #17
+
+Finished up the delayed do operator work, also added support for arrays for the
+ifNo operator. And I also had time to refactor out the operators into their own
+file using the wildcard plugin for babel. Lots done. Now I'm going to
+potentially look into an isolate function next. Time for my break. Thing is I'm
+on a plane so I'll just have to sit here for a bit.
+
+
 ### #16
 
 I had to revert the last commit that I had dealing with trying to bubble up
