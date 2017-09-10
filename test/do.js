@@ -21,4 +21,34 @@ describe('Do Operator', (it) => {
         .do('testing.parameter', () => ({ returning: 'does nothing' }))
         .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
     );
+
+    it('allows a delayed side effect with the base value', (assert) => {
+        let ran = false;
+        return transmute({ parameter: 'roar' })
+            .do(new Promise(res => setTimeout(() => {
+                ran = true;
+                res();
+            }, 0)))
+            .then(() => assert.equal(ran, true));
+    });
+
+    it('allows a function that returns a delayed side effect with the base value', (assert) => {
+        let ran = false;
+        return transmute({ parameter: 'roar' })
+            .do(() => new Promise(res => setTimeout(() => {
+                ran = true;
+                res();
+            }, 0)))
+            .then(() => assert.equal(ran, true));
+    });
+
+    it('allows a function that returns a delayed side effect with a scoped value', (assert) => {
+        let delayedResult = 'notChanged';
+        return transmute({ parameter: 'scoped' })
+            .do('parameter', parameter => new Promise(res => setTimeout(() => {
+                delayedResult = parameter;
+                res();
+            }, 0)))
+            .then(() => assert.equal(delayedResult, 'scoped'));
+    });
 });
