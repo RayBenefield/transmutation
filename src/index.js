@@ -88,6 +88,14 @@ const baseOperators = {
         return Promise.resolve(value);
     },
     if: (path, transducer) => (value) => {
+        let failed = false;
+        if (_.isArray(path)) {
+            path.map((p) => { if (!_.has(value, p)) failed = true; return p; });
+            if (failed) {
+                return Promise.resolve(value);
+            }
+            return transducer(value);
+        }
         if (_.has(value, path)) return transducer(value);
         return Promise.resolve(value);
     },
