@@ -5,6 +5,16 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #16
+
+I had to revert the last commit that I had dealing with trying to bubble up
+errors, it just wasn't working out properly. I finished up adding array support
+for the if operator... I guess I need to add it to the ifNo operator as well.
+Well I also started work on properly waiting for the Do operator's side effect
+to finish since I have a lot of side effect stuff that needs to be done in other
+projects.
+
+
 ### #15
 
 So I thought I solved things, but I definitely didn't. As soon as I started
