@@ -13,4 +13,19 @@ describe('Isolate', (it) => {
             extension: 'roar',
         }))
     );
+
+    it('isolates an array of paths from a value for extending', assert => transmute({
+        parameter: 'roar',
+        second: 'test',
+    })
+        .extend('body', isolate(['parameter', 'second']))
+        .then(value => assert.deepEqual(value, {
+            parameter: 'roar',
+            second: 'test',
+            body: {
+                parameter: 'roar',
+                second: 'test',
+            },
+        }))
+    );
 });
