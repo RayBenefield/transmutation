@@ -1,7 +1,7 @@
 {
     "name": "transmutation",
     "description": "Enhanced promises for API creation, inspired by RxJS and Lodash.",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "homepage": "https://github.com/RayBenefield/transmutation",
     "author": {
         "name": "Raymond Benefield",
