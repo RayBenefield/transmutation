@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import merger from './merger';
 import * as operators from './operators'; // eslint-disable-line import/no-unresolved, import/extensions
 
 const createApi = ops => transducers => (value) => {
@@ -24,4 +25,14 @@ _.extend(defaultTransmuter, operators);
 
 export default defaultTransmuter;
 export const transmute = defaultTransmuter;
-export const isolate = _.curry((path, value) => _.get(value, path));
+export const isolate = _.curry((path, value) => {
+    if (!_.isArray(path)) {
+        return _.get(value, path);
+    }
+    return path.reduce((result, currentPath) => {
+        if (_.has(value, currentPath)) {
+            return merger(result, _.set({}, currentPath, _.get(value, currentPath)));
+        }
+        return result;
+    }, {});
+});
