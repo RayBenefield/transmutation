@@ -66,7 +66,20 @@
             "es2017"
         ],
         "plugins": [
-            "wildcard"
+            [
+                "wildcard",
+                {
+                    "exts": [
+                        "js",
+                        "es6",
+                        "es",
+                        "jsx",
+                        "javascript",
+                        "json"
+                    ],
+                    "noCamelCase": true
+                }
+            ]
         ]
     }
 }
