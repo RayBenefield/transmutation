@@ -14,8 +14,29 @@ describe('If Operators', (it) => {
         }))
     );
 
+    it('extends if multiple paths exists', assert => transmute({
+        testing: { parameter: 'roar' },
+        second: { path: 'stuff' },
+    })
+        .if(['testing.parameter', 'second.path'],
+            transmute.extend({ ifTest: 'pass' })
+        )
+        .then(value => assert.deepEqual(value, {
+            ifTest: 'pass',
+            testing: { parameter: 'roar' },
+            second: { path: 'stuff' },
+        }))
+    );
+
     it('does not extend if path does not exist', assert => transmute({ testing: { parameter: 'roar' } })
         .if('ifTest.parameter',
+            transmute.extend({ ifTest: 'fail' })
+        )
+        .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
+    );
+
+    it('does not extend if one of multiple paths is missing', assert => transmute({ testing: { parameter: 'roar' } })
+        .if(['testing.parameter', 'second.path'],
             transmute.extend({ ifTest: 'fail' })
         )
         .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
