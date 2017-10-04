@@ -5,6 +5,25 @@ Enhanced promises for API creation, inspired by RxJS and Lodash.
 
 ## Work Log
 
+### #19
+
+Started work on setting up a default case for the switch operator and that took
+less than a couple of minutes and was super easy and decided the next thing that
+I really wanted to do was setup an empty transmutation that could accept a value
+later on. This will be important in the future as I move towards testing
+transmutations with a new framework which is awesome. I need to start looking
+into doing documentation for transmutation as well as there are a lot of cool
+things you can do. Super happy about the pipeline stuff. I've been thinking
+about naming them **Transmutation Formulas** or **Transmutation Recipes**...
+since they are directions to a transmutation without having the actual starting
+data yet. Now that I have this feature though I can abstract out the business
+logic that I have in other packages now and then run tests over the logic with
+various amounts of different datas... woot! New package release... perhaps in
+the near future I'll actually do a true `0.1.0` release when I feel like it is
+truly useable by outsiders. But I'll need documentation and proper error
+handling before ever doing that.
+
+
 ### #18
 
 Worked on the isolate function that makes it easy to isolate pieces of objects.
