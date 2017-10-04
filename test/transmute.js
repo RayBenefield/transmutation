@@ -31,4 +31,15 @@ describe('Transmute', (it) => {
     it('recursively handles transmuted values', assert => transmute(transmute(promise))
         .then(value => assert.deepEqual(value, { test: 'promise' }))
     );
+
+    it('prepares a pipeline for data', (assert) => {
+        const pipeline = transmute()
+            .extend({ roar: 'hello' });
+
+        return pipeline({ test: 'stuff' })
+            .then(value => assert.deepEqual(value, {
+                test: 'stuff',
+                roar: 'hello',
+            }));
+    });
 });
