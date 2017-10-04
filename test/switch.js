@@ -21,4 +21,15 @@ describe('Switch Operator', (it) => {
         })
         .then(value => assert.deepEqual(value, { testing: { parameter: 'roar' } }))
     );
+
+    it('selects the default if no values matches any branch', assert => transmute({ testing: { parameter: 'roar' } })
+        .switch('nonexistant.parameter', {
+            roar: transmute.extend({ switchTest: 'fail' }),
+            _default: transmute.extend({ switchTest: 'pass' }),
+        })
+        .then(value => assert.deepEqual(value, {
+            switchTest: 'pass',
+            testing: { parameter: 'roar' },
+        }))
+    );
 });
