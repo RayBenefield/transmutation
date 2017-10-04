@@ -3,6 +3,24 @@ import merger from './merger';
 import * as operators from './operators'; // eslint-disable-line import/no-unresolved, import/extensions
 
 const createApi = ops => transducers => (value) => {
+    if (value === undefined) {
+        const pipeline = val => ({
+            then: callback => transducers
+                .reduce(
+                    (prev, next) => prev.then(next),
+                    Promise.resolve(val)
+                )
+                .then(callback),
+        });
+        _.extend(pipeline, _.mapValues(ops, operator =>
+            (...args) => {
+                transducers.push(operator(...args));
+                return pipeline;
+            }
+        ));
+        return pipeline;
+    }
+
     const api = _.mapValues(ops, operator =>
         (...args) => {
             transducers.push(operator(...args));
