@@ -42,4 +42,19 @@ describe('Transmute', (it) => {
                 roar: 'hello',
             }));
     });
+
+    it('prepares a pipeline that can be extended later', (assert) => {
+        const pipeline = transmute();
+        const newPipeline = pipeline
+            .extend({ roar: 'hello' });
+        const newerPipeline = newPipeline
+            .extend({ stuff: 'another' });
+
+        return newerPipeline({ test: 'stuff' })
+            .then(value => assert.deepEqual(value, {
+                test: 'stuff',
+                roar: 'hello',
+                stuff: 'another',
+            }));
+    });
 });
