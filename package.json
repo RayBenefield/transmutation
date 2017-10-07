@@ -1,6 +1,6 @@
 {
     "name": "transmutation",
-    "description": "Enhanced promises for API creation, inspired by RxJS and Lodash.",
+    "description": "Enhanced promises for immutable data processing, inspired by RxJS and Lodash.",
     "version": "0.0.15",
     "homepage": "https://github.com/RayBenefield/transmutation",
     "author": {
