@@ -64,6 +64,18 @@ npm i -S transmutation
 
 ## Usage
 
+The documentation below covers basic concepts in **Transmutation** including its
+`promise` like interface, basic extending, deep manipulation, conditionals, and
+external service interaction.
+
+**For more detailed readable usage documentation:** [./usage.md](./usage.md)
+
+**For all tested use cases:** [./tests/\*](./tests/)
+
+---
+
+### Transmutation Promise
+
 **Transmutation** works like a stream or chained promises. Every chained
 function call builds on the previous. The output of the one goes in as input for
 the next. The stream begins by passing data into the default export `transmute`
@@ -80,11 +92,34 @@ transmute({ first: 'data' })
 { first: 'data' }
 ```
 
+---
 
-**For more detailed readable usage documentation:** [./usage.md](./usage.md)
+### Basic Extending
 
-**For all tested use cases:** [./tests/\*](./tests/)
+Once data has been `transmuted`, it can now be transformed with various
+operators. The core operator is `extend`. Data in keys in a `transmutation`
+cannot be modified or overwritten. New keys may be added, new items may be
+pushed to arrays, and new children can be added, but once it has been added it
+can never be removed in a later part of the pipeline. The final `then()` will
+always be a full "snowball" of all data gathered through the stream.
 
+```js
+import transmute from 'transmutation';
+
+transmute({ first: 'data' })
+    // Next line adds a new 'second' key to the base object
+    .extend({ second: { data: 'new' } })
+    // Next line adds a new child to the 'second' key, since it wouldn't remove any data
+    .extend({ second: { child: 'a new child' } })
+    // Next line will not modify the 'first' key since it is a string
+    .extend({ first: { child: 'a child' } })
+    .then(value => console.log(value));
+
+// Prints
+{ first: 'data', second: { child: 'a new child', data: 'new' } }
+```
+
+---
 
 ## Work Log
 
