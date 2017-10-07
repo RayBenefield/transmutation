@@ -161,6 +161,52 @@ transmute({ first: 'data' })
 ---
 
 
+### External Data
+
+Part of the value out of `RxJS` was doing async processing with external
+services both in the form of adding new data to work with and committing side
+effects like saving to a database. Basic extending goes beyond just basic data,
+it will take in a promise as well, allowing you to easily add external data to
+your `transmutation` stream.
+
+```js
+import transmute from 'transmutation';
+import request from 'request-promise-native';
+
+transmute({})
+    .extend('firstUserName', request('https://jsonplaceholder.typicode.com/users')
+        .then(JSON.parse)
+        .then(users => users[0])
+        .then(user => user.name)
+    )
+    .then(value => console.log(value));
+
+// Prints
+{ firstUserName: 'Leanne Graham' }
+```
+
+And of course, if there is something you need from the "snowball" most operators
+allow for functions to be passed where the argument given is the snowball at
+that current state. So if you start with the user ID, then you can use that.
+
+```js
+import transmute from 'transmutation';
+import request from 'request-promise-native';
+
+transmute({ userId: 1 })
+    .extend('userName', data => request(`https://jsonplaceholder.typicode.com/users/${data.userId}`)
+        .then(JSON.parse)
+        .then(user => user.name)
+    )
+    .then(value => console.log(value));
+
+// Prints
+{ userName: 'Leanne Graham', userId: 1 }
+```
+
+---
+
+
 ## Team
 
 |[![Ray Benefield](http://gravatar.com/avatar/e931b13306ea1022549766266727f789?s=144)](https://github.com/RayBenefield) |
