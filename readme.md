@@ -207,6 +207,34 @@ transmute({ userId: 1 })
 ---
 
 
+### Side Effects
+
+And of course we are able to send data outwards. The key with side effects is
+that typically we just want to send a portion of the data out to a system, but
+have that part of the pipeline return the same data it was given without any
+modification. In **Transmutation** we do that with the `do()` operator. It will
+accept execute the promise without modifying the base "snowball" of data and
+when it is done the stream will continue.
+
+```js
+import transmute from 'transmutation';
+import request from 'request-promise-native';
+
+transmute({ name: 'Ray Benefield' })
+    .do(user => request.put({
+        uri: 'https://jsonplaceholder.typicode.com/users/1',
+        json: true,
+        body: user,
+    }))
+    .then(value => console.log(value));
+
+// Prints
+{ name: 'Ray Benefield' }
+```
+
+---
+
+
 ## Team
 
 |[![Ray Benefield](http://gravatar.com/avatar/e931b13306ea1022549766266727f789?s=144)](https://github.com/RayBenefield) |
