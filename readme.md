@@ -121,6 +121,30 @@ transmute({ first: 'data' })
 
 ---
 
+
+### Deep Manipulation
+
+Because data can never be removed in a `transmutation`, there is great value in
+working with nested objects. Eventually nested objects get to be very difficult
+to work with, so **Transmutation** takes the JSON path based approach used in
+`lodash` and other libraries to make working with them easier. Most operators in
+**Transmutation** support path based manipulation.
+
+```js
+import transmute from 'transmutation';
+
+transmute({ first: 'data' })
+    .extend({ second: { data: 'new' } })
+    // Next line does the exact same thing as the previous line
+    .extend('second.data', 'new')
+    .then(value => console.log(value));
+
+// Prints
+{ first: 'data', second: { data: 'new' } }
+```
+
+---
+
 ## Work Log
 
 **Transmutation** is developed with an agile methodology that I'm currently
