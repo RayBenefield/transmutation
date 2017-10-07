@@ -1,5 +1,14 @@
 # Work Log
 
+## #20
+
+Finally started doing some documentation on Transmutation. I've got the initial
+readme done and structure. I'm going to start working on Usage documentation
+next, starting with basic usage on the readme and then detailed operator usage
+on a separate document. Right now the focus is on polishing the package to make
+it as presentable as possible for my portfolio. Breakfast time!
+
+
 ## #19
 
 Started work on setting up a default case for the switch operator and that took
