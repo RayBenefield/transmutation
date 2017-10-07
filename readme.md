@@ -64,6 +64,21 @@ npm i -S transmutation
 
 ## Usage
 
+**Transmutation** works like a stream or chained promises. Every chained
+function call builds on the previous. The output of the one goes in as input for
+the next. The stream begins by passing data into the default export `transmute`
+function, and the stream ends by ending with `.then()`. Like `promises`, then
+will accept the output of the stream and anything can be done with it.
+
+```js
+import transmute from 'transmutation';
+
+transmute({ first: 'data' })
+    .then(value => console.log(value));
+
+// Prints
+{ first: 'data' }
+```
 
 
 **For more detailed readable usage documentation:** [./usage.md](./usage.md)
