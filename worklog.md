@@ -1,5 +1,21 @@
 # Work Log
 
+## #24
+
+I added a usage document as well as documentation around starting to design a
+logo. I still have a lot of specific documentation on usage for
+**Transmutation**, but ultimately I think that I have a solid start that is good
+enough for a portfolio showing. And also... this marks 10 hours of work into
+this project. WOOT!!! Not bad for 10 hours. Very happy with the results. There
+are still lots of features that I want, but I'll get there over time. Very happy
+with the results at this point and I look forward to the next major package that
+will work for this, which is **Divination**. **Divination**'s goal will be to
+make **Transmutations** very easy to test. It will take inspiration from my old
+package **RxT** which was a declarative testing framework for **RxJS**. And now
+that I'm not using rx, I now need a testing framework for **Transmutation**. :)
+Should be awesome.
+
+
 ## #23
 
 The documentation is taking a lot longer than I expected, but it is definitely
