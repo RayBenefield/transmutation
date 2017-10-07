@@ -1,5 +1,13 @@
 # Work Log
 
+## #22
+
+Added more detailed documentation over basic concepts in **Transmutation**
+including basic extending and deep manipulation. Next I'll be covering details
+on working with external services including taking in new data and committing
+side effects.
+
+
 ## #21
 
 Added documentation on how **Transmutation** came to be. It covers how I started
