@@ -1,5 +1,5 @@
 git stash -u
-vim readme.md
+vim worklog.md
 SESSION=$(<.session)
 ((++SESSION))
 rm .session
