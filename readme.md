@@ -83,9 +83,9 @@ The documentation below covers basic concepts in **Transmutation** including its
 `promise` like interface, basic extending, deep manipulation, conditionals, and
 external service interaction.
 
-**For more detailed readable usage documentation:** [./usage.md](./usage.md)
+**For more detailed readable usage documentation:** [./docs/usage.md](./docs/usage.md)
 
-**For all tested use cases:** [./tests/\*](./tests/)
+**For all tested use cases:** [./test/\*](./test/)
 
 ---
 
