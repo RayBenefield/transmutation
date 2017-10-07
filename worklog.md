@@ -1,5 +1,15 @@
 # Work Log
 
+## #23
+
+The documentation is taking a lot longer than I expected, but it is definitely
+worth it. I've finally covered interacting with external services. I think that
+is the most I'll do for the readme documentation and I'll probably start taking
+time to cover the detailed usage document tomorrow to at least get started on
+it. And probably put it under the docs folder. So I'll wrap up my documentation
+efforts with one more session before long break time with Jess. :) <3
+
+
 ## #22
 
 Added more detailed documentation over basic concepts in **Transmutation**
