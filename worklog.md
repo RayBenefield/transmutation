@@ -1,8 +1,18 @@
 # Work Log
 
+## #21
+
+Added documentation on how **Transmutation** came to be. It covers how I started
+with heavy use of observable streams through `RxJS` and then morphed into this
+philosophy of immutable data snowballing. I also added the initial portion of
+the Usage documentation. Still more to cover in terms of basic usage and then
+I'll start documenting each operator and unique usage in the specific usage
+documentation.
+
+
 ## #20
 
-Finally started doing some documentation on Transmutation. I've got the initial
+Finally started doing some documentation on **Transmutation**. I've got the initial
 readme done and structure. I'm going to start working on Usage documentation
 next, starting with basic usage on the readme and then detailed operator usage
 on a separate document. Right now the focus is on polishing the package to make
