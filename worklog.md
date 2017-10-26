@@ -1,5 +1,12 @@
 # Work Log
 
+## #26
+
+Setup the iterator system to handle iterable side effects and then implemented
+it into the project that needed it and it worked like a charm. Very happy that
+went quickly too. And I published a new version woot!!!
+
+
 ## #25
 
 Had to add an iterator system for fields for a project. Started with an iterable extension
