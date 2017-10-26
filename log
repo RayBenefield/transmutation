@@ -1,3 +1,4 @@
+#!/bin/bash
 git stash -u
 vim worklog.md
 SESSION=$(<.session)
