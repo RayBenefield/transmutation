@@ -1,5 +1,11 @@
 # Work Log
 
+## #25
+
+Had to add an iterator system for fields for a project. Started with an iterable extension
+system and I will be adding an iterable side effect system next.
+
+
 ## #24
 
 I added a usage document as well as documentation around starting to design a
