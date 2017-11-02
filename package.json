@@ -16,10 +16,6 @@
     },
     "license": "MIT",
     "main": "src/index.js",
-    "engines": {
-        "node": ">= 6.11.1",
-        "npm": ">=1.4.3"
-    },
     "scripts": {
         "prebuild": "npm run clean && mkdir -p dist/ && cp yarn.lock LICENSE readme.md dist/ && cat package.json | jq 'del(.babel,.devDependencies,.scripts)' --indent 4 > dist/package.json",
         "build": "babel src/ -d dist/src",
