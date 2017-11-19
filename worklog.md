@@ -1,5 +1,10 @@
 # Work Log
 
+## #28
+
+Just the log entry for the second of a double session.
+
+
 ## #27
 
 Just logged a double session preparing for more work in the future for
