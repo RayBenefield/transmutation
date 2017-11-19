@@ -1,5 +1,17 @@
 # Work Log
 
+## #27
+
+Just logged a double session preparing for more work in the future for
+**Transmutation**. I'm excited to formalize this more as I move forward with my
+development skills. **Transmutation** has the potential to complete remove the
+need for curly braces for a function body... lol. It is a lot of fun actually.
+And I'm looking forward to some of the fun ideas I have like meta operators,
+circles, and traps. Hopefully I'll get to a point where I feel comfortable with
+a `v0.1.0` release and start advertising its possibilities. We shall see. First
+is really proper error handling and bubbling.
+
+
 ## #26
 
 Setup the iterator system to handle iterable side effects and then implemented
