@@ -1,5 +1,19 @@
 # Work Log
 
+## #29
+
+I setup a bunch more issues with more ideas of things that need to be done. In
+addition I created an NPM organization, a Github organization, and registered
+the `transmutation.io` domain. I'm looking forward to sharing this sorcery that
+I've been playing with a lot. I also figured since I'm building a site for
+**Transmutation** I might as well start using **Fyre** to build it. And hell,
+this is a good reason to start setting up **Dex** as well. All of my projects
+will come together!!! It is exciting. Oh and I can display **Hermes** on it
+since **Hermes** is really the first open source project to attempt to fully
+utilize **Transmutation**. There is a lot of cool things happening!!! Loads of
+fun.
+
+
 ## #28
 
 Just the log entry for the second of a double session.
