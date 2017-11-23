@@ -5,6 +5,6 @@ SESSION=$(<.session)
 ((++SESSION))
 rm .session
 echo ${SESSION} >> .session
-git ci -am "Session Work Log #${SESSION}"
+git ci -am "Session Work Log #${SESSION} [skip ci]"
 git push
 git stash pop
