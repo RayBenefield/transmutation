@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+    - '6'
+cache: yarn
+install:
+    - yarn
+script:
+    - yarn run test
+    - yarn run lint
+after_success:
+    - .travis/patch.sh
+env:
+    global:
+        secure: xZjELRVcekI0cw6oPo06DL2EQGRQzH6sAhg+YKboeMI++FOqrr3qV6dJBwGWJkPrpyE1xS79EUvZGkSFLGl0QJXkV7uFyz2LMYhx6SVJPSrgPy/2mgi1xPgVhGy8SVEsA/jovoKQJ46TgwiftqEXwCknRDhz1ACz14iWqfYtjW+TDZqjcXhJQTeGdgMMDbgRfzCJcLPV0opwhE5wfd6+kJaqugBvmH8XNJNV/nMo56ZAFdaDAlYg59YXwpi9imxgmy3beizPHWR04QXSZNeSi6beqvvcEAIlP28GSTrhzyPQFmyMjgKCK9JCjKwYb/vkBhrWvnKNmPkQKXFbF3kkkd8uhckCEDLkVbtqDNDYcN/HN9Ug7Te1MssqWi+o3p9MKvEP83iYeO2PLRbj5fFof30Qd9mzfO0FE0yD1o2cWYjcVwXpdOmS7VpZUvpZLkvHRceZD5uIUJIBRN+T2L0uFhcIACDqtAbNVI4kaj26WDm6tj5bFJYO+Ox4oCxnexOY3ScPDTrBLbIsUqh6AJ+guBELcQTzIqoQTZsCxNJWaqJ2OhGPC1cTQmSAlQxFUVsoABc8PhGC9eSWmnzNp+yJi1DIn8GIxB4Q1MDVasO4qwxcK0Fbe2TvvGFGLR4x3/1OemVKrpwtURZ8E2DtNkrvIBHdd2baEj7JrkdaR6X+xqw=
+before_deploy:
+    - yarn run build
+    - cd dist
+deploy:
+    provider: npm
+    email: "raymond.benefield@gmail.com"
+    api_key:
+        secure: iyMo8gosAdlyW9PVenmRLQjai0x1wUQ3htpKS1ZAKQSsNJ2tpy2jbP09asIbNoic4B2hKFgMRdvfGcTDYUxBPFC2GvlMLh59zGOklIXgJbjSsE+3aLWo5XV+jIzpiBizQVvvejEcjX5qWKtc8DgqwfE9J+5V30sF+CakIKmBB63TipBB0isdSKk1Csn0e4Oyw7g5E23IUZjmEdxwGoztsuZoJSQEoX4xKmZ7JJIqsjaOw4TGP8w6x5gXDtvzsg2/KuOiUVcaTh9h/t+59pCTJd/PiOSSOa4TEMtF7A6yvxQHjo8DMO6TfJI810YPelS3kajEsS4pX0jhVhc/ssRFgZ8l40rtyIWqU4UbBWuYYmW+VVb8ezQwuyyhCKyP0U3pvEC4H5Zz9S9J2/crEroDg4zMqI2IR02nWLlFgJiXoTYPUkPjvhP/hRokiuK7XZU7m6a8/uKAHldQlGmBu/DQPKhyfH4IfgT+lwk6aXle1c3Cvzx3woU8O2JSA4McXsIyYAiADN0f1mL72OPnhttDuBozMqSjucvwZ7oewTHrWnKNzVFGc5YDkWBkK4kaIghsOlxWqpBhHu+KPUIljOpoNsGS34Ro0ZZd1U7XtJLVlLkPL6JbfEna09vfJn+H886QHNCdjZtkZAorglmSgaa1m3oPHTPl6R5Oq6XEtbpKR64=
+    on:
+        branch: master
