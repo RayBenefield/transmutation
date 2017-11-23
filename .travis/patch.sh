@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     setup_git() {
         git config --global user.email "Raymond.Benefield@gmail.com"
         git config --global user.name "Raymond Benefield"
