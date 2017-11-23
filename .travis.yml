@@ -21,6 +21,7 @@ before_deploy:
 deploy:
     provider: npm
     email: "raymond.benefield@gmail.com"
+    skip_cleanup: true
     api_key:
         secure: iyMo8gosAdlyW9PVenmRLQjai0x1wUQ3htpKS1ZAKQSsNJ2tpy2jbP09asIbNoic4B2hKFgMRdvfGcTDYUxBPFC2GvlMLh59zGOklIXgJbjSsE+3aLWo5XV+jIzpiBizQVvvejEcjX5qWKtc8DgqwfE9J+5V30sF+CakIKmBB63TipBB0isdSKk1Csn0e4Oyw7g5E23IUZjmEdxwGoztsuZoJSQEoX4xKmZ7JJIqsjaOw4TGP8w6x5gXDtvzsg2/KuOiUVcaTh9h/t+59pCTJd/PiOSSOa4TEMtF7A6yvxQHjo8DMO6TfJI810YPelS3kajEsS4pX0jhVhc/ssRFgZ8l40rtyIWqU4UbBWuYYmW+VVb8ezQwuyyhCKyP0U3pvEC4H5Zz9S9J2/crEroDg4zMqI2IR02nWLlFgJiXoTYPUkPjvhP/hRokiuK7XZU7m6a8/uKAHldQlGmBu/DQPKhyfH4IfgT+lwk6aXle1c3Cvzx3woU8O2JSA4McXsIyYAiADN0f1mL72OPnhttDuBozMqSjucvwZ7oewTHrWnKNzVFGc5YDkWBkK4kaIghsOlxWqpBhHu+KPUIljOpoNsGS34Ro0ZZd1U7XtJLVlLkPL6JbfEna09vfJn+H886QHNCdjZtkZAorglmSgaa1m3oPHTPl6R5Oq6XEtbpKR64=
     on:
