@@ -1,5 +1,18 @@
 # Work Log
 
+## #30, #31, #32, #33, #34, #35, #36, #37, #38, #39, #40, #41
+
+Soooo... I just spent 12 damn sessions setting up Travis CI to work as I want it
+to. So now Travis CI will run tests and linting on pull request, then on merge
+of the pull request it will create a patch, commit the change to master, and
+then deploy the new patch to NPM. So I have full continuous integration and
+deployment now setup. :) This won't be so easy when I setup multiple packages
+and set it up as a mono repo, but this is a solid start. It took a LOT of time
+to setup the patching system to work just right and I am SOOO happy it is done
+now. And the plan is that I will manually do a minor or major revision. When I
+need to do that, then I'll see how that works out.
+
+
 ## #29
 
 I setup a bunch more issues with more ideas of things that need to be done. In
