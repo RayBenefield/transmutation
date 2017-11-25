@@ -72,8 +72,8 @@ to doing logic. Check out the [\#Usage](#usage) section below for examples.
 
 ```bash
 yarn add transmutation
-npm install --save transmutation
 npm i -S transmutation
+npm install --save transmutation
 ```
 
 
