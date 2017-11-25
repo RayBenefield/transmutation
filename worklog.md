@@ -1,5 +1,13 @@
 # Work Log
 
+## #43
+
+Explored the commit convention tools that exist. I was going to setup commit
+linting and realized that I probably want to switch to using `husky` first for
+my git hooks so I'm going to switch to that first next session instead and with
+that I should be able to setup linting easily.
+
+
 ## #42
 
 Spent a bit of time exploring some more conventions for improving the repo's
