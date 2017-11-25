@@ -1,5 +1,15 @@
 # Work Log
 
+## #46, 47, 48, 49
+
+Went through and rebased all of the commits in the `master` branch to match the
+current commit conventions. And also reset all the tags to point to the right
+commits properly. So everything should be good to go. The next thing on my todo
+list is probably to handle the changelog creation now and to create changelogs
+for all of the previous releases. Should be fun.
+
+
+
 ## #45
 
 Added githook setup for checking commit message convention. Also tied it into
