@@ -1,5 +1,13 @@
 # Work Log
 
+## #44
+
+Got `husky` setup in place of `git-hooks` and that was super easy. I'm currently
+going through and setting up commit standards to setup as a git hook. Taking my
+break for now. I also have to figure out whether I can add some special **DEX**
+processing for changelog generation in the future.
+
+
 ## #43
 
 Explored the commit convention tools that exist. I was going to setup commit
