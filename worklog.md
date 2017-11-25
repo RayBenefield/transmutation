@@ -1,5 +1,27 @@
 # Work Log
 
+## #42
+
+Spent a bit of time exploring some more conventions for improving the repo's
+contribution workflow. I want to add JS inspect for checking for duplicate code
+and also add commit guidelines in general. I honestly have no idea how I'm going
+to enforce **DEX** development at all, but I don't think I'll get any
+contributions any time soon, so I'll think on that. I want to eventually move
+**Transmutation** into being one of the first projects managed by a **DEX**
+platform because I would like to see **Transmutation** compensate people for
+contributing to the project because I believe it could be as powerful as
+**RxJS**, but more approachable. I want to compensate for **DEX** sessions done.
+But really I need a **DEX** platform to really push that forward. We'll see
+though, lots to consider. The biggest problem right now doing it manually
+without a platform is the numbering system, since work will be done
+asynchronously and also logs are checked into the repo instead of managed by a
+platform. So I need to make sure I figure that out in the future. For now...
+I'll just do everything manually myself. Oh and I need to figure out Changelog
+generation as well on top of commit standards. Lots to do to improve this repo
+and get a good handle on open source standardization moving forward which will
+be useful for other projects I work on.
+
+
 ## #30, #31, #32, #33, #34, #35, #36, #37, #38, #39, #40, #41
 
 Soooo... I just spent 12 damn sessions setting up Travis CI to work as I want it
