@@ -1,5 +1,13 @@
 # Work Log
 
+## #45
+
+Added githook setup for checking commit message convention. Also tied it into
+Travis for CI checking. I'm also in the middle of updating the log script to
+handle worklogs properly. Hopefully it is working properly. It checks out master
+then goes back to the branch and rebases onto the new master.
+
+
 ## #44
 
 Got `husky` setup in place of `git-hooks` and that was super easy. I'm currently
