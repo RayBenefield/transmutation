@@ -1,10 +1,14 @@
 #!/bin/bash
 git stash -u
+BRANCH=$(git symbolic-ref --short HEAD)
+git checkout master
+git pull --rebase
 vim worklog.md
 SESSION=$(<.session)
 ((++SESSION))
-rm .session
-echo ${SESSION} >> .session
-git ci -am "Session Work Log #${SESSION} [skip ci]"
+echo ${SESSION} > .session
+git commit -am "docs(worklog): Session work log #${SESSION} [skip ci]."
 git push
+git checkout ${BRANCH}
+git rebase master
 git stash pop
