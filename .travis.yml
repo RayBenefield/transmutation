@@ -5,9 +5,11 @@ branches:
     only:
         - master
 cache: yarn
+before_install: git fetch --unshallow
 install:
     - yarn
 script:
+    - .travis/lint-commits.sh
     - yarn run test
     - yarn run lint
 after_success:
