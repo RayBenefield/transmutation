@@ -1,5 +1,15 @@
 # Work Log
 
+## #50
+
+Went through and setup `commitizen` which will use inquirer to construct a
+commit which is awesome. And not only that I found an adapter for `commitizen`
+that uses my `commitlint` config, which is more awesome as now it counts the
+number of characters remaining as well as checks for enums properly and what
+not. WOOT! Kind of awesome. Next is to setup the changelog which will be super
+nice.
+
+
 ## #46, 47, 48, 49
 
 Went through and rebased all of the commits in the `master` branch to match the
