@@ -23,6 +23,7 @@
         "precommit": "npm-run-all test lint sloc",
         "gcommit": "git-cz",
         "commitmsg": "commitlint -e $GIT_PARAMS",
+        "postrewrite": "./.travis/rewrite-tags.sh",
         "lint": "eslint -c .eslintrc.json src/",
         "test": "babel-tape-runner test/{,**/}*.js | tap-spec",
         "watch": "nodemon --exec npm-run-all test lint sloc",
