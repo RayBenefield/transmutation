@@ -1,5 +1,14 @@
 # Work Log
 
+## #51
+
+Went through and fixed some of the skip ci messages and moved them all to the
+footer. Didn't really get much done. I need to go through and rebase the old
+commits in master. I'm hoping this is the last time I'm touching master. I also
+setup a rewrite script for rebasing to move tags. Not sure if it is working, but
+we shall see.
+
+
 ## #50
 
 Went through and setup `commitizen` which will use inquirer to construct a
