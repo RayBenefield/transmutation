@@ -1,5 +1,17 @@
 # Work Log
 
+## #52
+
+I spent a lot of this time trying to fix the patching commit message for adding
+skip ci to the header. Now I need to go through the history and rebase all the
+messages, but I think I'm good for the most part. Just historical fixing. I've
+also noticed that tags aren't being properly created in Travis so I have to look
+deeper into that. I'm so confused!!! But I'm getting closer. Going to the movies
+for now, I'll fix this tonight or in the morning hopefully. So close I think all
+that is left for cleaning up is setting up the changelog system and a few more
+just minor clean up stuff and then a CONTRIBUTING document.
+
+
 ## #51
 
 Went through and fixed some of the skip ci messages and moved them all to the
