@@ -213,8 +213,8 @@ And of course we are able to send data outwards. The key with side effects is
 that typically we just want to send a portion of the data out to a system, but
 have that part of the pipeline return the same data it was given without any
 modification. In **Transmutation** we do that with the `do()` operator. It will
-accept execute the promise without modifying the base "snowball" of data and
-when it is done the stream will continue.
+execute the promise without modifying the base "snowball" of data and when it is
+done the stream will continue.
 
 ```js
 import transmute from 'transmutation';
