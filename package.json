@@ -28,9 +28,7 @@
         "test": "babel-tape-runner test/{,**/}*.js | tap-spec",
         "watch": "nodemon --exec npm-run-all test lint sloc",
         "sloc": "echo 'Lines of source code: ' && sloc src/ --exclude node_modules -f json | jq '.summary.source'",
-        "patch": "npm version patch -m 'docs(version): Released v%s.\n\n[skip ci]' && js-beautify -r package.json && git commit -a --amend --no-edit",
-        "minor": "npm version minor -m 'docs(version): Released v%s.\n\n[skip ci]' && js-beautify -r package.json && git commit -a --amend --no-edit",
-        "major": "npm version major -m 'docs(version): Released v%s.\n\n[skip ci]' && js-beautify -r package.json && git commit -a --amend --no-edit",
+        "postversion": "js-beautify -r package.json && PACKAGE_VERSION=$(cat package.json | jq '.version' --raw-output) && git commit -a -m \"docs(version): Release v$PACKAGE_VERSION.\" -m '[skip ci]' && git tag \"v$PACKAGE_VERSION\"",
         "postinstall": "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
     },
     "dependencies": {
