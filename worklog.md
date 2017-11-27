@@ -1,5 +1,13 @@
 # Work Log
 
+## #54
+
+Worked a double session in order to properly rebase all of the tags in the
+history of the repo to the proper commit and now it seems like everything is
+working out perfectly. It took me a while to really dive in properly and fix
+everything. But I'm happy that it is finally done.
+
+
 ## #53
 
 Travis was not patching things properly as it was commit ammending and it kept
