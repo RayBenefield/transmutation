@@ -11,7 +11,7 @@ if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; th
         git fetch origin-deploy master
         git branch --track master origin-deploy/master
         git reset --hard origin-deploy/master
-        yarn run patch
+        npm version patch --no-git-tag-version
     }
 
     upload_files() {
