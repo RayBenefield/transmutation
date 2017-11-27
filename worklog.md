@@ -1,5 +1,14 @@
 # Work Log
 
+## #53
+
+Travis was not patching things properly as it was commit ammending and it kept
+losing its proper tagging which is painfully sad. So now it is properly patched
+and working which is awesome and it is now using postversion instead of a run
+script for each version type. Which is much cleaner anyway and this should make
+the changelog implementation much better as well.
+
+
 ## #52
 
 I spent a lot of this time trying to fix the patching commit message for adding
