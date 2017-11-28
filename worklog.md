@@ -1,5 +1,14 @@
 # Work Log
 
+## #56
+
+Woot I actually got a lot done this session. I setup scope enumerations for
+`commitlint` which is super nice. I rebased all of the commit messages for
+worklog entries to not point to issues with a hashtag anymore and also move the
+skip ci tag to the footer. And I also setup Travis Slack Notifications along
+with Github Slack Notifications... super nice and super easy. ;)
+
+
 ## #55
 
 Just logging my double session here.
