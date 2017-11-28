@@ -1,5 +1,19 @@
 # Work Log
 
+## #58
+
+Started looking at what it is going to take to create a Changelog writer for
+**Transmutation** and it isn't exactly the simplest project. I think I'm going
+to need to setup babel-register to use ES6 and then go from there. I tried
+importing the **Angular** writer right off the bat, but that didn't work out
+exactly. I discovered that the CLI tool for writing changelogs has a bug in it
+where it doesn't load a config properly if it returns a prommise in the same way
+it handles presets. So I'll probably put in a bug fix for that tomorrow. For
+now, I'm going to do one more session of just screwing around a bit with the
+changelog writer and if need be I'll fork and fix it on there until I can get a
+pull request merged.
+
+
 ## #57
 
 This was a VERY painful session, but was needed. I went through my entire commit
