@@ -1,5 +1,19 @@
 # Work Log
 
+## #59, #60, #61, #62, #63
+
+Got SUPER sucked into creating the template system. Once I started to figure
+things out I couldn't stop myself. I've got a basic changelog writer that will
+work for now. Unlike the **Angular** changelog I have a setup that will not only
+add *Features*, *Bugs Fixes*, *Performance*, and what not, but also add
+important developer details like *Documentation*, *Tests*, *Refactors*, and *DX
+Improvements*. Took a bit to find a system that worked, and realized that I
+could tap into the notes system that the changelog writer has. Which works out
+perfectly. I may have to setup a different way to handle Breaking Changes
+though... so there is that. But I think I have an idea on what to do. We shall
+see.
+
+
 ## #58
 
 Started looking at what it is going to take to create a Changelog writer for
