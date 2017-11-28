@@ -1,5 +1,14 @@
 # Work Log
 
+## #57
+
+This was a VERY painful session, but was needed. I went through my entire commit
+history and changed everything to be imperative present tense. I think I am now
+ready to start tackling the changelog system. I'm excited!!! This is why I
+decided to start doing all of this commit based requirements in the first place
+and now I will be rewarded for my work!
+
+
 ## #56
 
 Woot I actually got a lot done this session. I setup scope enumerations for
