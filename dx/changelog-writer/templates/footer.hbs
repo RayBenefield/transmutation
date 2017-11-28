@@ -1,0 +1,12 @@
+{{#if noteGroups}}
+{{#each noteGroups}}
+
+<details><summary><b>{{title}}</b></summary>
+
+{{#each notes}}
+* **{{#if type}}{{type}}({{/if}}{{#if commit.scope}}{{commit.scope}}{{#if type}}){{/if}}:{{else}}misc:{{/if}}** {{text}}
+{{/each}}
+</details>
+{{/each}}
+
+{{/if}}
