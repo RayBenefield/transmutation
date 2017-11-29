@@ -1,5 +1,13 @@
 # Work Log
 
+## #64
+
+Spent my session working on putting in a patch/pull request to the
+`conventional-changelog-cli` package to properly handle a custom configuration
+using a promise. Wasn't too bad as it was a one line change and just had to add
+a test for it.
+
+
 ## #59, #60, #61, #62, #63
 
 Got SUPER sucked into creating the template system. Once I started to figure
