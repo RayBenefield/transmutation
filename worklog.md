@@ -1,5 +1,19 @@
 # Work Log
 
+## #68, #69, #70
+
+So I got REALLY sucked into and obsessive over shrinking down the bundle size.
+So I started experimenting with breaking things apart and cutting out as many
+lodash dependencies as possible. I got down to pretty much just 5 pieces of
+lodash and I think I can remove `has`/`get`/`set` using either `dot-wild` or
+`dot-prop`. I might quickly try to replace it with `dot-prop` and see if that
+cuts it down any. There is still some extra duplicate code due to  the `each`
+operators that will get removed with a proper `circle` implementation. But I'll
+survive for now. Going to try to wrap this up and test it properly. I still need
+to adjust the full build system to include the package.json, license, and
+readme like the old build system. AWAY!!!
+
+
 ## #65, #66, #67
 
 Did a triple session trying to get rollup setup so I can treeshake and get
