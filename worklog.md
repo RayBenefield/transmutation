@@ -1,5 +1,14 @@
 # Work Log
 
+## #65, #66, #67
+
+Did a triple session trying to get rollup setup so I can treeshake and get
+everything sized down. I think I set it up just right and things will be awesome
+from here. Took me a while to figure out some babel transpiling things and
+stuff. I can cut a lot of details out I think and simplify things a bit, but we
+shall see. Lots to play around with for optimization.
+
+
 ## #64
 
 Spent my session working on putting in a patch/pull request to the
