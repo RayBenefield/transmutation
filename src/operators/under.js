@@ -1,3 +1,3 @@
-import _ from 'lodash';
+import set from 'lodash.set';
 
-export default path => value => Promise.resolve(_.set({}, path, value));
+export default path => value => Promise.resolve(set({}, path, value));

@@ -1,25 +1,25 @@
-import _ from 'lodash';
+import set from 'lodash.set';
 import merger from '../merger';
 
 export default (path, obj) => (value) => {
     // eslint-disable-next-line no-nested-ternary
-    const paths = obj && _.isArray(path)
+    const paths = obj && Array.isArray(path)
         ? path
-        : _.isNull(path)
+        : !path
             ? null
             : [path];
     const finalPath = obj ? paths : null;
     const base = obj || path;
     let finalObject = null;
     try {
-        finalObject = _.isFunction(base) ? base(value) : base;
+        finalObject = typeof base === 'function' ? base(value) : base;
     } catch (e) {
         e.value = value;
         throw e;
     }
     if (finalPath) {
         return Promise.all(finalPath.map(single => Promise.resolve(finalObject)
-            .then(o => _.set({}, single, o))
+            .then(o => set({}, single, o))
             .then(o => merger(o, value))
         ))
         .then(o => o.reduce(merger, {}))
