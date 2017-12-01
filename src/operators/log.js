@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import has from 'lodash.has';
+import get from 'lodash.get';
 
 // eslint-disable-next-line no-console
 export default (title, path, logger = console.log) => (value) => {
@@ -6,29 +7,29 @@ export default (title, path, logger = console.log) => (value) => {
         logger(value);
         return Promise.resolve(value);
     }
-    if (_.isFunction(title)) {
+    if (typeof title === 'function') {
         title(value);
         return Promise.resolve(value);
     }
     if (title && !path) {
-        if (_.has(value, title)) {
-            logger(_.get(value, title));
+        if (has(value, title)) {
+            logger(get(value, title));
             return Promise.resolve(value);
         }
         logger(title, value);
         return Promise.resolve(value);
     }
-    if (title && _.isFunction(path)) {
-        if (_.has(value, title)) {
-            path(_.get(value, title));
+    if (title && typeof path === 'function') {
+        if (has(value, title)) {
+            path(get(value, title));
             return Promise.resolve(value);
         }
         path(title, value);
         return Promise.resolve(value);
     }
     if (title && path) {
-        if (_.has(value, path)) {
-            logger(title, _.get(value, path));
+        if (has(value, path)) {
+            logger(title, get(value, path));
             return Promise.resolve(value);
         }
         logger(title, value);

@@ -1,10 +1,10 @@
-import _ from 'lodash';
+import has from 'lodash.has';
 
 export default (path, transducer) => (value) => {
-    if (_.isArray(path)) {
-        if (_.every(path, p => _.has(value, p))) return transducer(value);
+    if (Array.isArray(path)) {
+        if (Array.every(path, p => has(value, p))) return transducer(value);
         return Promise.resolve(value);
     }
-    if (_.has(value, path)) return transducer(value);
+    if (has(value, path)) return transducer(value);
     return Promise.resolve(value);
 };
