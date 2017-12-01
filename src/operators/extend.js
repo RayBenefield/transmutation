@@ -1,4 +1,4 @@
-import set from 'lodash.set';
+import { set } from 'dot-prop';
 import merger from '../merger';
 
 export default (path, obj) => (value) => {
@@ -19,7 +19,7 @@ export default (path, obj) => (value) => {
     }
     if (finalPath) {
         return Promise.all(finalPath.map(single => Promise.resolve(finalObject)
-            .then(o => set({}, single, o))
+            .then(o => set({}, single.toString(), o))
             .then(o => merger(o, value))
         ))
         .then(o => o.reduce(merger, {}))

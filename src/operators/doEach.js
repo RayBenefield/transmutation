@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import { get } from 'dot-prop';
 import doStuff from './do';
 
 export default (iterable, stream) => value => Promise.all(

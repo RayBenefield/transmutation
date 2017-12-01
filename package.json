@@ -34,11 +34,9 @@
         "postinstall": "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
     },
     "dependencies": {
-        "lodash.get": "^4.4.2",
-        "lodash.has": "^4.5.2",
+        "dot-prop": "^4.2.0",
         "lodash.mapvalues": "^4.6.0",
-        "lodash.mergewith": "^4.6.0",
-        "lodash.set": "^4.3.2"
+        "lodash.mergewith": "^4.6.0"
     },
     "devDependencies": {
         "@commitlint/cli": "^5.1.1",
