@@ -1,5 +1,37 @@
 # Work Log
 
+## #71
+
+I'm quite proud of what I've accomplished this early morning. I was able to
+finish up the build system and shrink down the module size, make it consumable
+for browsers, and more. It was super awesome. This last session I spent trying
+to replace lodash's `get`/`set`/`has` with something simpler and I added
+**Sindre's** `dot-prop` package and it actually reduced my gzip file size down
+to 7.7 KB, about 1.5 KB smaller than it was. I'll end up switching to `dot-wild`
+soon which will kick back up the size, but the functionality gained by being
+able to do wildcards and stuff will be SOOO awesome. So it will be worth it when
+I tackle it. I also played around with `unpkg.com` to make sure
+**Transmutation** was easily usable in the browser. The package for browsers
+actually cuts out the customizable portions of **Transmutation** for now. It
+also doesn't export `isolate`. I plan to add in both `isolate` and `circle` into
+the browser global exports, but for now it is good where it is.
+
+It's been a good day and this weekend I'm going to finish up the changelog and
+really polish the readme and docs before I start jumping into building out the
+initial `circle` functionality. If I can make `circle` a replacement for stream
+libraries like `RxJS` and `xstream` while keeping the same interface and
+immutable principles of `transmute` I'll have something very successful on my
+hands. **Functional Reactive Programming (FRP)** in its current state is filled with lots
+of mathematical words and complexity that isn't great for your general JS
+audience. I'm hoping `transmute`, `circle`, and `isolate` helps to improve the
+**Developer Experience (DX)** to get people more into FRP. It is a powerful paradigm,
+but not enough people are using it and I think it is because of the painful DX.
+Hopefully I can make **Transmutation** a solid package that is small, efficient,
+and easy to use all at the same time. And it will open the doors to many more
+things in the future. Looking forward to tackling those big ideas after handling
+**Transmutation**.
+
+
 ## #68, #69, #70
 
 So I got REALLY sucked into and obsessive over shrinking down the bundle size.
