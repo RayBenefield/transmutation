@@ -1,4 +1,4 @@
-import has from 'lodash.has';
+import { has } from 'dot-prop';
 
 export default (path, transducer) => (value) => {
     if (Array.isArray(path)) {

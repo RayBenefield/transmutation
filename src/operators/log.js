@@ -1,5 +1,4 @@
-import has from 'lodash.has';
-import get from 'lodash.get';
+import { has, get } from 'dot-prop';
 
 // eslint-disable-next-line no-console
 export default (title, path, logger = console.log) => (value) => {

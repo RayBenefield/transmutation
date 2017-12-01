@@ -1,6 +1,4 @@
-import has from 'lodash.has';
-import get from 'lodash.get';
-import set from 'lodash.set';
+import { has, get, set } from 'dot-prop';
 import merger from './merger';
 
 export default (...args) => {

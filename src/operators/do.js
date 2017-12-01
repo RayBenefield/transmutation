@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import { get } from 'dot-prop';
 
 export default (path, sideEffect) => (value) => {
     const finalPath = sideEffect ? path : null;

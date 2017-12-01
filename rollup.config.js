@@ -44,7 +44,11 @@ export default [
         name: 'transmute',
         plugins: [
             resolve(), // so Rollup can find `ms`
-            commonjs(), // so Rollup can convert `ms` to an ES module
+            commonjs({
+                namedExports: {
+                    'dot-prop': ['get', 'has', 'set', 'delete'],
+                },
+            }), // so Rollup can convert `ms` to an ES module
             babel(babelConfig),
             uglify({}, minify),
             filesize(),
