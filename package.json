@@ -1,7 +1,7 @@
 {
     "name": "transmutation",
     "description": "Enhanced promises for immutable data processing, inspired by RxJS and Lodash.",
-    "version": "0.0.42",
+    "version": "0.0.43",
     "main": "transmutation.cjs.js",
     "module": "transmutation.esm.js",
     "browser": "transmutation.umd.js",
