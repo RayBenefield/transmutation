@@ -1,5 +1,19 @@
 # Work Log
 
+## #73, #74, 75
+
+Spent a lot of time trying to solve the test system and figuring out why babel
+was not working properly. I settled on setting up the test script to cd into the
+`node_modules` folder before running the tests. Apparently `babel-register`
+ignores compiling things inside of `node_modules` explicitly. So I had to dive
+into the directory before running the tests which ends out working fine. I've
+got the initial split up of the repository going, now I just need to split it up
+even more into my ideal situation. And then later I can start figuring out how
+to handle multi-project publishing. Cuz right now even though I'm splitting up
+all of the projects, and they include each other, they are still not being
+published at all. So that will be its own kind of fun.
+
+
 ## #72
 
 So I've taken like a week break while I work on another project (again) to focus
