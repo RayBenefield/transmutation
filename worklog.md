@@ -1,5 +1,20 @@
 # Work Log
 
+## #72
+
+So I've taken like a week break while I work on another project (again) to focus
+on taking all of the quality tricks that I've learned over this past month with
+**Transmutation** and turn it into a standard toolset. Yesterday however I
+discovered a potentially awesome technique for setting up a monorepo really
+easily and I started testing it on **Transmutation**. I've got it mostly figured
+out including the rollup config stuff and a couple other things. All I've got
+left is trying to figure out how to get my tests to properly run. They are
+running into a babel configuration error somewhere, probably because the
+packages are now nested deeply in another folder. My brain is hurting. I always
+hate babel configuration errors. They are the only real problem that I run into
+now on a regular basis.
+
+
 ## #71
 
 I'm quite proud of what I've accomplished this early morning. I was able to
