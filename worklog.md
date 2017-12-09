@@ -1,6 +1,24 @@
 # Work Log
 
-## #73, #74, 75
+## #76, #77, #78
+
+Spent another 3 sessions exploring the `Alle` monorepo system and I got
+everything working and figured out. Even explored how linting and stuff would
+affect everything. Now ever operator is properly in its place and the project is
+completely split up. Which is awesome!!! Next is to start figuring out how to
+handle publishing the multiple projects as I have to adjust the `rollup` system
+to build all of the projects... or at least the ones that need to change. Lots
+to consider. I think my next batch of time is going to be focused on
+[**KI/KD**](https://github.com/RayBenefield/kikd) instead of
+[**Transmutation**](https://github.com/RayBenefield/transmutation). But I've
+been expecting that. Now that I have an example of the `Alle` monorepo project
+structure I can move forward with
+[**KI/KD**](https://github.com/RayBenefield/kikd). Breakfast time and today the
+**Monster Hunter World Beta** is out for 3 days... so my weekend will be very
+distracted lol...
+
+
+## #73, #74, #75
 
 Spent a lot of time trying to solve the test system and figuring out why babel
 was not working properly. I settled on setting up the test script to cd into the
