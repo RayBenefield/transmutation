@@ -8,6 +8,16 @@
 
 # Transmutation
 
+[![npm](https://img.shields.io/npm/v/transmutation.svg)](https://www.npmjs.com/package/transmutation)
+[![npm](https://img.shields.io/npm/dm/transmutation.svg)](https://www.npmjs.com/package/transmutation)
+[![Travis](https://img.shields.io/travis/RayBenefield/transmutation.svg)](https://travis-ci.org/RayBenefield/transmutation)
+<br/>
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/RayBenefield/ama)
+[![Conventional Changelog](https://img.shields.io/badge/changelog-conventional-brightgreen.svg)](https://conventionalcommits.org/)
+<br/>
+[![GitHub license](https://img.shields.io/github/license/RayBenefield/transmutation.svg)](https://github.com/RayBenefield/transmutation/blob/master/LICENSE)
+[![Known Vulnerabilities](https://snyk.io/test/github/raybenefield/transmutation/badge.svg)](https://snyk.io/test/github/raybenefield/transmutation)
+
 Enhanced promises for immutable data processing, inspired by RxJS and Lodash.
 
 ## NOTICE: Active Development
