@@ -1,5 +1,15 @@
 # Work Log
 
+## #79
+
+Locked down the master branch again and closed that issue and spent some time
+exploring which badges to add to the readme, so I think it is good now. That is
+all done. Just doing some small cleaning up here and there before I tackle some
+work on [**KI/KD**](https://github.com/RayBenefield/kikd). That is next on my
+list now. Because I can't move forward without some real publishing system for
+all of the packages.
+
+
 ## #76, #77, #78
 
 Spent another 3 sessions exploring the `Alle` monorepo system and I got
