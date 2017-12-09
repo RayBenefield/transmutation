@@ -35,7 +35,7 @@ const babelConfig = {
 export default [
     // browser-friendly UMD build
     {
-        input: 'src/default.js',
+        input: 'src/node_modules/transmutation/default.js',
         output: {
             file: path.resolve('dist', pkg.browser),
             format: 'umd',
@@ -61,13 +61,18 @@ export default [
     // builds from a single configuration where possible, using
     // the `targets` option which can specify `dest` and `format`)
     {
-        input: 'src/index.js',
+        input: 'src/node_modules/transmutation/index.js',
         external: Object.keys(pkg.dependencies),
         output: [
             { file: path.resolve('dist', pkg.main), format: 'cjs', exports: 'named' },
             { file: path.resolve('dist', pkg.module), format: 'es', exports: 'named' },
         ],
         plugins: [
+            resolve({
+                customResolveOptions: {
+                    moduleDirectory: 'src/node_modules',
+                },
+            }),
             babel(babelConfig),
             uglify({}, minify),
             filesize(),
