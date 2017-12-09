@@ -95,7 +95,7 @@ external service interaction.
 
 **For more detailed readable usage documentation:** [./docs/usage.md](./docs/usage.md)
 
-**For all tested use cases:** [./test/\*](./test/)
+**For all tested use cases:** [./src/node_modules/__tests__/\*](./src/node_modules/__tests__)
 
 ---
 
