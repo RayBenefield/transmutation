@@ -36,7 +36,7 @@
     "dependencies": {
         "dot-prop": "^4.2.0",
         "lodash.mapvalues": "^4.6.0",
-        "lodash.mergewith": "^4.6.0"
+        "lodash.mergewith": "^4.6.2"
     },
     "devDependencies": {
         "@commitlint/cli": "^5.1.1",
