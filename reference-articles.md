@@ -1,0 +1,7 @@
+ - Transmute instead of callback
+ - https://www.christianalfoni.com/articles/2016_03_31_RxJs-the-smartest-dumbest-tool-ever
+ - https://staltz.com/why-we-built-xstream.html
+ - https://www.reddit.com/r/javascript/comments/4austh/why_isnt_rxjs_more_popular_are_there_bad_parts/
+ - https://medium.com/@puppybits/rxjs-is-great-so-why-have-i-moved-on-534c513e7af3
+ - https://github.com/sindresorhus/ama/issues/10#issuecomment-117766328
+ - https://stackoverflow.com/a/3580764/6168422
