@@ -34,7 +34,7 @@
         "postinstall": "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
     },
     "dependencies": {
-        "dot-prop": "^4.2.0",
+        "dot-prop": "^5.1.1",
         "lodash.mapvalues": "^4.6.0",
         "lodash.mergewith": "^4.6.0"
     },
